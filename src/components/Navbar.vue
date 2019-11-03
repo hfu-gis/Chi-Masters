@@ -7,7 +7,7 @@
             <h1>{{headline}}</h1>
         </div>
         <div id="navigation">
-            <router-link to="/views/login" v-if="!loggedIn">{{login}}</router-link>
+            <router-link to="/views/login" v-if="!loggedIn">{{loginText}}</router-link>
             <router-link to="/" v-if="loggedIn">{{logoutText}}</router-link>
             <span v-if="loggedIn">{{username}}</span>
         </div>
@@ -22,7 +22,7 @@
         data: function() {
             return {
                 headline: 'Chi-Masters',
-                login: 'Einloggen oder Registrieren',
+                loginText: 'Einloggen oder Registrieren',
                 logoutText: 'Ausloggen',
                 loggedIn: App.data().loggedIn,
                 username: App.data().username
