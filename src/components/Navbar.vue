@@ -22,7 +22,7 @@
         data: function() {
             return {
                 headline: 'Chi-Masters',
-                login: 'Einloggen oder Registrieren',
+                login: 'Login or register',
                 logoutText: 'Ausloggen',
                 loggedIn: App.data().loggedIn,
                 username: App.data().username
