@@ -5,8 +5,11 @@ import Game from './views/Game.vue';
 import Home from './views/Home.vue';
 import Imprint from './views/Imprint';
 import VueRouter from 'vue-router';
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
 
-
+Vue.use(VueMaterial)
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
 

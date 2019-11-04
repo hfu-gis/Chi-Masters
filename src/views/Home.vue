@@ -1,6 +1,7 @@
 <template>
     <div id="home">
         <h1>Home</h1>
+        <md-button class="md-raised md-accent">Accent</md-button>
     </div>
 </template>
 

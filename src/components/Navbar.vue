@@ -22,7 +22,7 @@
         data: function() {
             return {
                 headline: 'Chi-Masters',
-                login: 'Login or register',
+                loginText: 'Login or register',
                 logoutText: 'Ausloggen',
                 loggedIn: App.data().loggedIn,
                 username: App.data().username
@@ -33,7 +33,7 @@
 
 <style scoped>
     #navigation {
-        margin-right: 5rem;
+        margin-right: 2rem;
     }
     #NavigationBar {
         height: 10vh;
