@@ -13,5 +13,30 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.3.0/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDuow2tAw4-31QulqXoVZTmKe91_mvV1-Y",
+        authDomain: "chi-masters.firebaseapp.com",
+        databaseURL: "https://chi-masters.firebaseio.com",
+        projectId: "chi-masters",
+        storageBucket: "chi-masters.appspot.com",
+        messagingSenderId: "982609856511",
+        appId: "1:982609856511:web:dd65da53afb408ae0109ca",
+        measurementId: "G-RGKHBV56CN"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
