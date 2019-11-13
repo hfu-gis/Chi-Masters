@@ -30,14 +30,7 @@ export default {
     Navbar,
     Footer
   },
-  data: function() {
-    return {
-      loggedIn: false
-    }
-  },
   methods: {
-    logout: function() {
-    }
   }
 }
 </script>

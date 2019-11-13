@@ -1,9 +1,22 @@
 <template>
     <div id="Login-Screen" role="main">
         <h1>{{msg}}</h1>
-        <input v-if="!signIn && !signUp" id="email" type="email" :placeholder="mailText" v-model="email">
-        <input v-if="signIn || signUp" id="password" type="password" :placeholder="pwText" v-model="password">
-        <button id="submit" @click="check">{{submit}}</button>
+        <md-field md-clearable v-if="!signIn && !signUp" class="has-green input">
+            <md-icon><i class="fas fa-at"></i></md-icon>
+            <label>E-Mail</label>
+            <md-input v-model="email" type="email"></md-input>
+        </md-field>
+        <md-field v-if="signIn || signUp" :class="messageClass" class="has-danger input">
+            <md-icon><i class="fas fa-lock"></i></md-icon>
+            <label>Password</label>
+            <md-input v-model="password" type="password"></md-input>
+            <span class="md-error">{{errorMessage}}</span>
+        </md-field>
+        <div>
+            <md-button v-if="signIn || signUp" @click="back" class="md-accent md-just-icon md-round submitButton"><i class="fas fa-arrow-left"></i></md-button>
+            <md-button @click="check" class="md-accent md-just-icon md-round submitButton"><i class="fas fa-arrow-right"></i></md-button>
+        </div>
+
     </div>
 </template>
 
@@ -21,10 +34,17 @@
                 email: '',
                 password: '',
                 signUp: false,
-                signIn: false
+                signIn: false,
+                hasMessages: false,
+                errorMessage: 'Error'
             }
         },
         methods: {
+            back: function() {
+                this.signUp = false;
+                this.signIn = false;
+                this.msg = 'Login to your account or create a new one';
+            },
             check: function() {
                 let self = this;
 
@@ -50,12 +70,15 @@
 
             },
             create: function() {
+                let self = this;
+
                 firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                     function() {
                         firebase.auth().currentUser.sendEmailVerification().then(function() {
                             //Email gesendet
                         }).catch(function(err) {
-                            alert(err);
+                            self.errorMessage = err.message;
+                            self.hasMessages = true;
                         })
                     },
                     function(err) {
@@ -64,20 +87,39 @@
                 )
             },
             login: function() {
+                let self = this;
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-                    function(user) {
-                        alert('Yeeahh ' + user);
+                    function() {
+                        // TO_DO : redirecting to home
                     },
                     function(err) {
-                        alert('war wohl nichts... ' + err);
+                        self.errorMessage = err.message;
+                        self.hasMessages = true;
                     }
                 )
+            }
+        },
+        computed: {
+            messageClass () {
+                return {
+                    'md-invalid': this.hasMessages
+                }
             }
         }
     }
 </script>
 
 <style scoped>
+    h1 {
+        height: 5rem;
+    }
+    .submitButton {
+        font-size: 3em;
+        height: 5rem;
+    }
+    .input {
+        width: 30vw;
+    }
     #Login-Screen {
         display: flex;
         flex-direction: column;

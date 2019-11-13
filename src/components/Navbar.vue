@@ -7,16 +7,14 @@
             <h1>{{headline}}</h1>
         </div>
         <div id="navigation">
-            <router-link to="/views/login" v-if="!loggedIn">{{loginText}}</router-link>
-            <router-link to="/" v-if="loggedIn">{{logoutText}}</router-link>
-            <span v-if="loggedIn">{{username}}</span>
+            <router-link to="home">{{homeText}}</router-link>
+            <router-link to="login" v-if="!loggedIn">{{loginText}}</router-link>
+            <router-link to="imprint">Imprint</router-link>
         </div>
     </div>
 </template>
 
 <script>
-    import App from '../App.vue';
-
     export default {
         name: "Navbar",
         data: function() {
@@ -24,8 +22,8 @@
                 headline: 'Chi-Masters',
                 loginText: 'Login or register',
                 logoutText: 'Ausloggen',
-                loggedIn: App.data().loggedIn,
-                username: App.data().username
+                homeText: 'Home',
+                loggedIn: false
             }
         }
     }
@@ -33,12 +31,11 @@
 
 <style scoped>
     #navigation {
-        margin-right: 2rem;
     }
     #NavigationBar {
         height: 10vh;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         left: 0;
         top: 0;

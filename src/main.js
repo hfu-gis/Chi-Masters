@@ -16,7 +16,7 @@ Vue.config.productionTip = false;
 const router = new VueRouter({
   routes: [
       {
-          path: '/views/home',
+          path: '/views/Home',
           name: 'home',
           component: Home
       },
@@ -37,7 +37,7 @@ const router = new VueRouter({
       },
       {
           path: '*',
-          redirect: '/views/home'
+          redirect: '/views/Home'
       }
   ]
 });

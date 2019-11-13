@@ -1,13 +1,15 @@
 <template>
     <div id="home">
-        <h1>Welcome</h1>
         <md-button class="md-raised md-accent">GET STARTED</md-button>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+        data: function() {
+        },
+        methods: {}
     }
 </script>
 
