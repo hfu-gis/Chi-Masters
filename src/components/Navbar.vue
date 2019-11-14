@@ -1,48 +1,25 @@
 <template>
-    <div id="NavigationBar" role="navigation">
-        <div id="logo" role="img">
-            <router-link to="/views/home"><img alt="logo" src="../assets/logo.png"></router-link>
-        </div>
-        <div id="headline">
-            <h1>{{headline}}</h1>
-        </div>
+    <md-toolbar id="NavigationBar" md-elevation="4">
+        <router-link to="home"><h3 class="md-title">Chi-Masters</h3></router-link>
         <div id="navigation">
-            <router-link to="/views/login" v-if="!loggedIn">{{loginText}}</router-link>
-            <router-link to="/" v-if="loggedIn">{{logoutText}}</router-link>
-            <span v-if="loggedIn">{{username}}</span>
+            <router-link to="home"><md-button>Home</md-button></router-link>
+            <router-link to="login"><md-button>Login / Register</md-button></router-link>
         </div>
-    </div>
+    </md-toolbar>
 </template>
 
 <script>
-    import App from '../App.vue';
-
     export default {
-        name: "Navbar",
-        data: function() {
-            return {
-                headline: 'Chi-Masters',
-                loginText: 'Login or register',
-                logoutText: 'Ausloggen',
-                loggedIn: App.data().loggedIn,
-                username: App.data().username
-            }
-        }
+        name: "Navbar"
     }
 </script>
 
 <style scoped>
     #navigation {
-        margin-right: 2rem;
+        justify-content: flex-end;
     }
     #NavigationBar {
-        height: 10vh;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        left: 0;
-        top: 0;
-        width: 100%;
-        box-shadow: 0 0.5vh 1vh grey;
     }
 </style>

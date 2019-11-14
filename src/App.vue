@@ -1,37 +1,38 @@
 <template>
   <div id="app">
     <Navbar/>
-    <router-view/>
+    <router-view></router-view>
     <Footer/>
   </div>
 </template>
 
 <script>
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+  import Navbar from './components/Navbar';
+  import Footer from './components/Footer';
+  import firebase from 'firebase';
 
-let user = {
-  loggedIn: false,
-  username: 'Dennis',
-  token: '1235',
-  gameCharacter: 'test'
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyDuow2tAw4-31QulqXoVZTmKe91_mvV1-Y",
+    authDomain: "chi-masters.firebaseapp.com",
+    databaseURL: "https://chi-masters.firebaseio.com",
+    projectId: "chi-masters",
+    storageBucket: "chi-masters.appspot.com",
+    messagingSenderId: "982609856511",
+    appId: "1:982609856511:web:dd65da53afb408ae0109ca",
+    measurementId: "G-RGKHBV56CN"
+  };
 
-export default {
-  name: 'app',
-  components: {
-    Navbar,
-    Footer
-  },
-  data: function() {
-    return user;
-  },
-  methods: {
-    logout: function() {
-      user.loggedIn = false;
+  firebase.initializeApp(firebaseConfig);
+
+  export default {
+    name: 'app',
+    components: {
+      Navbar,
+      Footer
+    },
+    methods: {
     }
   }
-}
 </script>
 
 <style>
