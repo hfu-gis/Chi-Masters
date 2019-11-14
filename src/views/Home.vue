@@ -7,7 +7,22 @@
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+
+        comments: {},
+        // benötigte Komponenten
+        props: {},
+        // entspricht den HTML-Attributen
+        data() {
+            return{}
+        },
+        // Variablen-Speicher
+        watch: {},
+        // reagieren auf prop-Veränderung
+        methods: [],
+        // interne Methoden
+        created() {}
+        // Initialisierung
     }
 </script>
 
