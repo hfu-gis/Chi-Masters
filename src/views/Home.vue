@@ -31,6 +31,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 80vh;
+        height: 180vh;
+        background-image: url("../assets/images/Temple.jpg");
     }
 </style>
