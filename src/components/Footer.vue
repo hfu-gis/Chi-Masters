@@ -26,6 +26,5 @@
         display: flex;
         justify-content: flex-end;
         bottom: 0;
-        position: fixed;
     }
 </style>
