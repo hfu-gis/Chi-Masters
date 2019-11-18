@@ -1,13 +1,11 @@
 <template>
     <div id="Game-Div">
+        <h1>GameView</h1>
+        <canvas id="Game-Canvas"></canvas>
     </div>
 </template>
 
 <script>
-
-    // eslint-disable-next-line no-unused-vars
-    import game from '../game/game';
-
     export default {
         name: "Game"
     }
