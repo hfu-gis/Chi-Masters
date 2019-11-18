@@ -1,8 +1,8 @@
 <template>
-    <div id="Footer">
+    <md-toolbar id="Footer" md-elevation="4">
         <span id="copy" v-html="copyright"></span>
         <router-link to="/views/Imprint"><a id="termsOfUse" :href="termsOfUseLink">{{termsOfUse}}</a></router-link>
-    </div>
+    </md-toolbar>
 </template>
 
 <script>
@@ -23,14 +23,9 @@
         margin-right: 5rem;
     }
     #Footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
         display: flex;
-        height: 10vh;
-        align-items: center;
         justify-content: flex-end;
-        box-shadow:  0 -0.5vh 1vh gray;
+        bottom: 0;
+        position: fixed;
     }
 </style>
