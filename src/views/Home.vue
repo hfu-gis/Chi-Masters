@@ -8,7 +8,7 @@
     export default {
         name: "Home",
 
-        comments: {},
+        components: {},
         // benötigte Komponenten
         props: {},
         // entspricht den HTML-Attributen
