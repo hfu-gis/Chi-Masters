@@ -1,20 +1,37 @@
 <template>
-    <div id="Game-Div">
-        <div id="GameView"></div>
+    <div :id="containerId" v-if="downloaded" />
+    <div class="placeholder" v-else>
+        Downloading ...
     </div>
 </template>
 
 <script>
-    // eslint-disable-next-line no-unused-vars
-    import game from '../game/game';
 
     export default {
-        name: "Game"
+        name: "Game",
+        data() {
+            return {
+                downloaded: false,
+                gameInstance: null,
+                containerId: 'game-container'
+            }
+        },
+        async mounted() {
+
+            const game = await import('../game/game.js')
+            this.downloaded = true
+            this.$nextTick(() => {
+                this.gameInstance = game.launch(this.containerId)
+            })
+        },
+        destroyed() {
+            this.gameInstance.destroy(false);
+        }
     }
 </script>
 
 <style scoped>
-    #Game-Div {
+    #game-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
