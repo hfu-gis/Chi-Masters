@@ -1,6 +1,7 @@
 <template>
     <div id="home">
         <md-button class="md-raised md-accent">GET STARTED</md-button>
+        <md-button class="md-raised md-accent">Impressum / Datenschutz</md-button>
     </div>
 </template>
 
