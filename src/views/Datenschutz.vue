@@ -1,9 +1,8 @@
 <template>
-    <div id="home">
-        <v-col cols="12" sm="6" md="3">
-            <v-text-field
-                    label="Solo"
-                    placeholer="Impressum
+    <v-col cols="12" sm="6" md="3">
+        <v-text-field
+                label="Solo"
+                placeholer="Impressum
 Informationspflicht laut § 5 TMG.
 
 Max Mustermann
@@ -253,13 +252,9 @@ Sollten Sie ein SoundCloud-Konto haben und angemeldet sein, werden diese Daten I
 Die Datenschutzrichtlinien, welche Informationen SoundCloud sammelt und wie sie diese verwenden finden Sie auf https://soundcloud.com/pages/privacy.
 
 Quelle: Erstellt mit dem Datenschutz Generator von AdSimple in Kooperation mit warkly.de"
-            ></v-text-field>
-            <md-card v-if="getsRedirected">
-           <md-card-actions>
-            <md-button><router-link to="Impressum / Datenschutz">Home</router-link></md-button>
-           </md-card-actions>
-            </md-card>
-    </div>
+        ></v-text-field>
+
+    </v-col>
 </template>
 
 <script>
@@ -271,7 +266,7 @@ Quelle: Erstellt mit dem Datenschutz Generator von AdSimple in Kooperation mit w
 </script>
 
 <style scoped>
-    #home {
+    #Datenschutz {
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -4,6 +4,7 @@ import Login from '../views/Login.vue';
 import Game from '../views/Game.vue';
 import Home from '../views/Home.vue';
 import Imprint from '../views/Imprint';
+import Datenschutz from "../views/Datenschutz";
 
 Vue.use(VueRouter);
 
@@ -31,8 +32,14 @@ export default new VueRouter({
             component: Imprint
         },
         {
+            path: '/views/Datenschutz',
+            name: 'datenschutz',
+            component: Datenschutz
+        },
+        {
             path: '*',
             redirect: '/views/Home'
         }
+
     ]
 });

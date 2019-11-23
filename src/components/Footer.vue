@@ -1,6 +1,7 @@
 <template>
     <md-toolbar id="Footer" md-elevation="4">
         <span id="copy" v-html="copyright"></span>
+        <router-link to="datenschutz"><md-button class="md-raised md-accent spacing">Impressum / Datenschutz</md-button></router-link>
         <router-link to="/views/Imprint"><a id="termsOfUse" :href="termsOfUseLink">{{termsOfUse}}</a></router-link>
     </md-toolbar>
 </template>
