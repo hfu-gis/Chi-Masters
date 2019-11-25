@@ -1,8 +1,7 @@
 <template>
     <div id="home">
         <md-button class="md-raised md-accent">GET STARTED</md-button>
-        <router-link to="datenschutz"><md-button class="md-raised md-accent spacing">Impressum / Datenschutz</md-button></router-link>
-    </div>
+           </div>
 </template>
 
 <script>
@@ -32,7 +31,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 180vh;
+        height: 95vh;
         background-image: url("../assets/images/Temple.jpg");
     }
 </style>
