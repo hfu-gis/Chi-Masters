@@ -6,6 +6,7 @@ import Home from '../views/Home.vue';
 import Calendar from "../views/Calendar";
 import Money from "../views/Money";
 import Settings from "../views/Settings";
+import Profile from "../views/Profile";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ export default new VueRouter({
             path: '/views/Home',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/views/Profile',
+            name: 'Profile',
+            component: Profile
         },
         {
             path: '/views/Login',

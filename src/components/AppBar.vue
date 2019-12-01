@@ -13,6 +13,12 @@
                 <v-icon>mdi-home</v-icon>
             </v-btn>
         </router-link>
+        <router-link to="Profile" tag="v-btn">
+            <v-btn class="mr-2" :to="Profile">
+                <span class="mr-2">Profile</span>
+                <v-icon>mdi-account-circle</v-icon>
+            </v-btn>
+        </router-link>
         <router-link to="calendar" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Calendar</span>
