@@ -21,7 +21,6 @@
                     size="24"
                     class="mr-4"
             >
-                <v-img src="https://cdn.vuetifyjs.com/images/weather/part-cloud-48px.png" contain></v-img>
             </v-avatar>
 
             <span>81° / 62°</span>
