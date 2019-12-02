@@ -10,7 +10,7 @@
 
         </v-img>
         <v-card-title>
-            <div class="display-1 mb-2">Nächster Termin</div>
+            <div class="display-1 mb-2">Next meeting</div>
             <div class="title font-weight-regular grey--text">01.12.2019, Sunday, 14:30</div>
         </v-card-title>
 
