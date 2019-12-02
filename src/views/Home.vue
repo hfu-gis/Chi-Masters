@@ -21,18 +21,23 @@
                     class="mr-2"
                     @click="lights"
             >
-                <v-icon left>mdi-alarm-check</v-icon>
-                Set alarm
+                <v-icon left>mdi-calendar-check</v-icon>
+                Set in calendar
             </v-chip>
             <v-chip
                     class="mr-2"
                     @click="alarm"
             >
-                <v-icon left>mdi-alarm-check</v-icon>
+                <v-icon
+                        color="green"
+                        left>mdi-check-circle</v-icon>
                 Accept
+
             </v-chip>
             <v-chip @click="blinds">
-                <v-icon left>mdi-blinds</v-icon>
+                <v-icon
+                        color="red"
+                        left>mdi-close-circle</v-icon>
                 Decline
             </v-chip>
         </v-card-text>
