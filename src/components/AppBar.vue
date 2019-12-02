@@ -22,7 +22,7 @@
         <router-link to="calendar" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Calendar</span>
-                <v-icon>mdi-calendar-today</v-icon>
+                <v-icon>mdi-home</v-icon>
             </v-btn>
         </router-link>
         <router-link to="money" tag="v-btn">
