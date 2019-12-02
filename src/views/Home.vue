@@ -45,7 +45,7 @@
         </v-card>
         <v-card
                 class="mx-auto"
-                max-width="344"
+                max-width="450"
                 outlined
         >
             <v-list-item three-line>
