@@ -20,7 +20,7 @@ export default new VueRouter({
         },
         {
             path: '/views/Profile',
-            name: 'Profile',
+            name: 'profile',
             component: Profile
         },
         {

@@ -13,8 +13,8 @@
                 <v-icon>mdi-home</v-icon>
             </v-btn>
         </router-link>
-        <router-link to="Profile" tag="v-btn">
-            <v-btn class="mr-2" :to="Profile">
+        <router-link to="profile" tag="v-btn">
+            <v-btn class="mr-2">
                 <span class="mr-2">Profile</span>
                 <v-icon>mdi-account-circle</v-icon>
             </v-btn>
@@ -44,7 +44,7 @@
             </v-btn>
         </router-link>
         <router-link to="login" tag="v-btn">
-            <v-btn class="mr-2" :to="login">
+            <v-btn class="mr-2">
                 <span class="mr-2">Login</span>
                 <v-icon>mdi-login</v-icon>
             </v-btn>
