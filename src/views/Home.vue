@@ -1,10 +1,11 @@
 <template>
+
     <div>
+
         <v-card
-                class="mx-auto"
+                class="ml-12 mb-6"
                 max-width="450"
 
-                outlined
         >
             <v-list-item three-line>
                 <v-list-item-content>
@@ -23,8 +24,33 @@
                 </router-link>
             </v-card-actions>
         </v-card>
+
         <v-card
-                class="mx-auto"
+                class="ml-12 mb-6"
+                max-width="450"
+
+        >
+            <v-list-item three-line>
+                <v-list-item-content>
+                    <div class="overline mb-4">News</div>
+                    <v-list-item-title class="headline mb-1">Survey</v-list-item-title>
+                    <v-list-item-subtitle>Should we buy a new equipment? </v-list-item-subtitle>
+                </v-list-item-content>
+
+            </v-list-item>
+
+            <v-card-actions>
+                <router-link to="money" tag="v-btn">
+                    <v-btn class="mr-2">
+                        <span class="mr-2">Money</span>
+                    </v-btn>
+                </router-link>
+            </v-card-actions>
+        </v-card>
+
+        <v-card
+                class="mx-auto mb-12"
+
                 max-width="450"
         >
             <v-img
