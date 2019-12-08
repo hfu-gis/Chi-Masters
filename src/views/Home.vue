@@ -40,11 +40,18 @@
             </v-list-item>
 
             <v-card-actions>
-                <router-link to="money" tag="v-btn">
-                    <v-btn class="mr-2">
-                        <span class="mr-2">Money</span>
-                    </v-btn>
-                </router-link>
+                <v-container fluid>
+                    <v-row align="center">
+                        <v-col class="d-flex" cols="12" sm="6">
+                            <v-select
+                                    :items="items"
+                                    label="Solo field"
+                                    dense
+                                    solo
+                            ></v-select>
+                        </v-col>
+                    </v-row>
+                </v-container>
             </v-card-actions>
         </v-card>
 
