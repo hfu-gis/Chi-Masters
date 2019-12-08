@@ -25,9 +25,14 @@
                                     dense
                                     solo
                             ></v-select>
+                            <v-btn class="mr-2">
+                                <span class="mr-2">Send</span>
+                            </v-btn>
                         </v-col>
                     </v-row>
+
                 </v-container>
+
             </v-card-actions>
         </v-card>
 
@@ -47,7 +52,7 @@
 
             <v-card-actions>
                 <router-link to="money" tag="v-btn">
-                    <v-btn class="mr-2">
+                    <v-btn class="ml-2">
                         <span class="mr-2">Money</span>
                     </v-btn>
                 </router-link>
