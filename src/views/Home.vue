@@ -9,7 +9,7 @@
             <v-list-item three-line>
                 <v-list-item-content>
                     <div class="overline mb-2">News</div>
-                    <v-list-item-title class="headline mb-1">Survey</v-list-item-title>
+                    <v-list-item-title class="headline mb-3">Survey</v-list-item-title>
                     <v-list-item-subtitle>Should we buy a new equipment? </v-list-item-subtitle>
                 </v-list-item-content>
 
@@ -18,7 +18,7 @@
             <v-card-actions>
                 <v-container fluid>
                     <v-row align="center">
-                        <v-col class="d-flex" cols="12" sm="6">
+                        <v-col class="my-0" cols="12" sm="6">
                             <v-select
                                     :items="items"
                                     label="Decide"
@@ -39,7 +39,7 @@
             <v-list-item three-line>
                 <v-list-item-content>
                     <div class="overline mb-2">MONEY $</div>
-                    <v-list-item-title class="headline mb-1">Open amounts</v-list-item-title>
+                    <v-list-item-title class="headline mb-3">Open amounts</v-list-item-title>
                     <v-list-item-subtitle>Outstanding balance: 25$</v-list-item-subtitle>
                 </v-list-item-content>
 
