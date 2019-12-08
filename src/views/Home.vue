@@ -52,7 +52,7 @@
 
             <v-card-actions>
                 <router-link to="money" tag="v-btn">
-                    <v-btn class="ml-2">
+                    <v-btn class="ml-2 mb-2">
                         <span class="mr-2">Money</span>
                     </v-btn>
                 </router-link>
