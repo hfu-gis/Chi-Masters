@@ -3,7 +3,7 @@
     <div>
 
         <v-card
-                class="ml-12 mb-6"
+                class="mx-auto mb-6"
                 max-width="450"
 
         >
@@ -26,7 +26,7 @@
         </v-card>
 
         <v-card
-                class="ml-12 mb-6"
+                class="mx-auto mb-6"
                 max-width="450"
 
         >
