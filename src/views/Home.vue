@@ -19,19 +19,19 @@
         <v-card-text>
             <v-chip
                     class="mr-2"
-                    @click="lights"
+
             >
                 <v-icon left>mdi-alarm-check</v-icon>
                 Set alarm
             </v-chip>
             <v-chip
                     class="mr-2"
-                    @click="alarm"
+
             >
                 <v-icon left>mdi-alarm-check</v-icon>
                 Accept
             </v-chip>
-            <v-chip @click="blinds">
+            <v-chip >
                 <v-icon left>mdi-blinds</v-icon>
                 Decline
             </v-chip>

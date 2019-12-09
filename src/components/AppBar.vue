@@ -7,54 +7,54 @@
 
         <v-spacer></v-spacer>
 
-        <router-link to="home" tag="v-btn">
-            <v-btn class="mr-2">
+
+            <v-btn class="mr-2" to="home">
                 <span class="mr-2">Home</span>
                 <v-icon>mdi-home</v-icon>
             </v-btn>
-        </router-link>
-        <router-link to="Profile" tag="v-btn">
-            <v-btn class="mr-2" :to="Profile">
+
+
+            <v-btn class="mr-2" to="Profile">
                 <span class="mr-2">Profile</span>
                 <v-icon>mdi-account-circle</v-icon>
             </v-btn>
-        </router-link>
-        <router-link to="calendar" tag="v-btn">
-            <v-btn class="mr-2">
+
+
+            <v-btn class="mr-2" to="calendar">
                 <span class="mr-2">Calendar</span>
                 <v-icon>mdi-calendar-today</v-icon>
             </v-btn>
-        </router-link>
-        <router-link to="money" tag="v-btn">
-            <v-btn class="mr-2">
+
+
+            <v-btn class="mr-2" to="money">
                 <span class="mr-2">Money</span>
                 <v-icon>mdi-currency-usd</v-icon>
             </v-btn>
-        </router-link>
-        <router-link to="settings" tag="v-btn">
-            <v-btn class="mr-2">
+
+
+            <v-btn class="mr-2" to="settings">
                 <span class="mr-2">Settings</span>
                 <v-icon>mdi-home</v-icon>
             </v-btn>
-        </router-link>
-        <router-link to="register" tag="v-btn">
-            <v-btn class="mr-2">
+
+
+            <v-btn class="mr-2" to="register" >
                 <span class="mr-2">Register</span>
                 <v-icon>mdi-account-plus</v-icon>
             </v-btn>
-        </router-link>
-        <router-link to="login" tag="v-btn">
-            <v-btn class="mr-2" :to="login">
+
+
+            <v-btn class="mr-2" to="login">
                 <span class="mr-2">Login</span>
                 <v-icon>mdi-login</v-icon>
             </v-btn>
-        </router-link>
-        <router-link to="login" tag="v-btn">
+
+
             <v-btn>
-                <span class="mr-2">Logout</span>
+                <span class="mr-2" to="logout">Logout</span>
                 <v-icon>mdi-logout</v-icon>
             </v-btn>
-        </router-link>
+
     </v-app-bar>
 </template>
 

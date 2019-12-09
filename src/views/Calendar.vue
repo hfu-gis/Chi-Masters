@@ -156,21 +156,20 @@
     }),
         computed: {
             title () {
-                const { start, end } = this
-                if (!start || !end) {
+                if (!this.start || !this.end) {
                     return ''
                 }
 
-                const startMonth = this.monthFormatter(start)
-                const endMonth = this.monthFormatter(end)
+                const startMonth = this.monthFormatter(this.start)
+                const endMonth = this.monthFormatter(this.end)
                 const suffixMonth = startMonth === endMonth ? '' : endMonth
 
-                const startYear = start.year
-                const endYear = end.year
+                const startYear = this.start.year
+                const endYear = this.end.year
                 const suffixYear = startYear === endYear ? '' : endYear
 
-                const startDay = start.day + this.nth(start.day)
-                const endDay = end.day + this.nth(end.day)
+                const startDay = this.start.day + this.nth(this.start.day)
+                const endDay = this.end.day + this.nth(this.end.day)
 
                 switch (this.type) {
                     case 'month':
@@ -212,7 +211,7 @@
                      details: this.details,
                      start: this.start,
                      end:this.end,
-                     color: this.color
+                     color: this.color,
                  });
                  this.getEvents();
                  this.name="";
@@ -236,7 +235,10 @@
                this.currentlyEditing = null;
            },
            async deleteEvent(ev) {
-               await db.collection('calEvent').doc(ev).delete();
+               await db
+                   .collection('calEvent')
+                   .doc(ev)
+                   .delete();
 
                this.selectedOpen = false;
                this.getEvents();
@@ -276,10 +278,13 @@
 
                nativeEvent.stopPropagation()
            },
-           updateRange ({ start, end }) {
-               // You could load events from an outside source (like database) now that we have the start and end dates on the calendar
-               this.start = start
-               this.end = end
+           updateRange (params) {
+               // eslint-disable-next-line no-console
+               console.log('param', params)
+               this.start = params.start
+               this.end = params.end
+               // eslint-disable-next-line no-console
+               console.log('param', this.start)
            },
            nth (d) {
                return d > 3 && d < 21
