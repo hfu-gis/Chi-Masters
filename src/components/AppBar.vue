@@ -6,9 +6,9 @@
         </div>
 
         <v-spacer></v-spacer>
-
-
-            <v-btn class="mr-2" to="home">
+        <!--Für Siew-->
+        <router-link to="home" tag="v-btn">
+            <v-btn class="mr-2">
                 <span class="mr-2">Home</span>
                 <v-icon>mdi-home</v-icon>
             </v-btn>
