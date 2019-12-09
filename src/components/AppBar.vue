@@ -13,31 +13,31 @@
                 <v-icon>mdi-home</v-icon>
             </v-btn>
         </router-link>
-        <router-link to="calendar" tag="v-btn">
+        <router-link v-if="user" to="calendar" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Calendar</span>
                 <v-icon>mdi-calendar-today</v-icon>
             </v-btn>
         </router-link>
-        <router-link to="money" tag="v-btn">
+        <router-link v-if="user" to="money" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Money</span>
                 <v-icon>mdi-currency-usd</v-icon>
             </v-btn>
         </router-link>
-        <router-link to="settings" tag="v-btn">
+        <router-link v-if="user" to="settings" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Settings</span>
                 <v-icon>mdi-home</v-icon>
             </v-btn>
         </router-link>
-        <router-link to="register" tag="v-btn">
+        <router-link v-if="!user" to="register" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Register</span>
                 <v-icon>mdi-account-plus</v-icon>
             </v-btn>
         </router-link>
-        <router-link to="login" tag="v-btn">
+        <router-link v-if="!user" to="login" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Login</span>
                 <v-icon>mdi-login</v-icon>
@@ -53,11 +53,6 @@
         name: "AppBar",
         props: {
             user: Object,
-        },
-        methods: {
-            logout() {
-                this.$emit('logout');
-            }
         }
     }
 </script>

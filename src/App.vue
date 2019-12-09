@@ -1,9 +1,8 @@
 <template>
   <v-app>
-    <AppBar @logout="logout" :user="user"/>
-
+    <AppBar :user="user"/>
     <v-content class="mx-6 my-6">
-      <router-view @login="login"/>
+      <router-view @login="login" @logout="logout" :user="user"/>
     </v-content>
   </v-app>
 </template>

@@ -7,18 +7,22 @@
                 <v-icon>mdi-account-circle</v-icon>
             </v-btn>
         </router-link>
-        <router-link to="login" tag="v-btn">
-            <v-btn>
-                <span class="mr-2">Logout</span>
-                <v-icon>mdi-logout</v-icon>
-            </v-btn>
-        </router-link>
+        <v-btn @click="logout">
+            <span class="mr-2">Logout</span>
+            <v-icon>mdi-logout</v-icon>
+        </v-btn>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Settings"
+        name: "Settings",
+        methods: {
+            logout() {
+                this.$emit('logout');
+                this.$router.push('home');
+            }
+        }
     }
 </script>
 
