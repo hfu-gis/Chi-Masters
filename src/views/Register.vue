@@ -70,6 +70,7 @@
 
 <script>
     import firebase from 'firebase';
+    import {db} from '@/main';
 
     export default {
         name: "Register",
@@ -95,8 +96,19 @@
         }),
         methods: {
             register: function() {
+                let self = this;
                 firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(function() {
-                    // TO-Do : Weiterleitung
+                    db.collection('Users').doc(self.email).set({
+                        Organization: [self.name],
+                        FirstName: self.firstName,
+                        LastName: self.lastName,
+                        Role: 'ADMIN'
+                    });
+                    db.collection('Organization').doc(self.name).set({
+                        Users: [self.email]
+                    }).then(() => {
+                        self.$router.push('home');
+                    });
                 }).catch(function(error) {
                     //To-DO : Fehlerbehandlung
                     alert(error.message());

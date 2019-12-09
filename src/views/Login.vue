@@ -68,6 +68,7 @@
                     this.errorMessages = err.message;
                 }).then((res) => {
                     this.$emit('login', res.user);
+                    this.$router.push('home');
                 })
             },
             resetError: function() {

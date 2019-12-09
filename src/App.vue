@@ -2,7 +2,7 @@
   <v-app>
     <AppBar @logout="logout" :user="user"/>
 
-    <v-content>
+    <v-content class="mx-6 my-6">
       <router-view @login="login"/>
     </v-content>
   </v-app>
