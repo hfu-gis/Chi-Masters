@@ -12,7 +12,7 @@
                 <span class="mr-2">Home</span>
                 <v-icon>mdi-home</v-icon>
             </v-btn>
-        </router-link>
+
         <router-link to="profile" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Profile</span>
@@ -42,7 +42,7 @@
                 <span class="mr-2">Register</span>
                 <v-icon>mdi-account-plus</v-icon>
             </v-btn>
-        </router-link>
+
         <router-link to="login" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Login</span>
@@ -55,7 +55,7 @@
                 <v-icon>mdi-logout</v-icon>
             </v-btn>
 
-    </v-app-bar>
+
 </template>
 
 <script>
