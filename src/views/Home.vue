@@ -6,19 +6,15 @@
                 max-width="450"
 
         >
-            <v-list-item three-line>
-                <v-list-item-content>
-                    <div class="overline mb-2">News</div>
-                    <v-list-item-title class="headline mb-3">Survey</v-list-item-title>
-                    <v-list-item-subtitle>Should we buy a new equipment? </v-list-item-subtitle>
-                </v-list-item-content>
 
-            </v-list-item>
 
             <v-card-actions>
                 <v-container fluid>
+                    <v-list-item-title class="headline mb-3">Survey</v-list-item-title>
+                    <v-list-item-subtitle>Should we buy a new equipment? </v-list-item-subtitle>
                     <v-row align="center">
                         <v-col class="my-0" cols="12" sm="6">
+
                             <v-select
                                     :items="items"
                                     label="Decide"
