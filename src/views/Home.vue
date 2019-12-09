@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!user" id="informationHome">
-            
+
         </div>
         <div v-if="user" id="loggedInHome">
             <v-card

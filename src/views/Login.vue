@@ -52,7 +52,7 @@
         data: () => ({
             valid: false,
             email: 'test@test.de',
-            password: 'lolpoplol',
+            password: '123456789',
             errorMessages: null,
             emailRules: [
                 v => !!v || 'E-mail is required',

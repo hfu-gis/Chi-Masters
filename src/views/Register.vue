@@ -76,11 +76,11 @@
         name: "Register",
         data: () => ({
             valid: false,
-            name: '',
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
+            name: 'den',
+            firstName: 'sdf',
+            lastName: 'tg',
+            email: 'wsdv@de.de',
+            password: 'sgfrdgergf',
             emailRules: [
                 v => !!v || 'E-mail is required',
                 v => /.+@.+/.test(v) || 'E-mail must be valid'
@@ -97,7 +97,7 @@
         methods: {
             register: function() {
                 let self = this;
-                firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(function() {
+                firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(function(res) {
                     db.collection('Users').doc(self.email).set({
                         Organization: [self.name],
                         FirstName: self.firstName,
@@ -107,6 +107,7 @@
                     db.collection('Organization').doc(self.name).set({
                         Users: [self.email]
                     }).then(() => {
+                        this.$emit('logout', res.user);
                         self.$router.push('home');
                     });
                 }).catch(function(error) {
