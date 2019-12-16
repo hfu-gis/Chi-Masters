@@ -5,22 +5,23 @@
                 <v-app light>
                     <v-content>
                         <section>
-                            <v-parallax src="assets/hero.jpeg" height="600">
+                            <v-orgorg src="assets/hero.jpeg" height="600">
                                 <v-layout column align-center justify-center class="black--text">
                                     <img src="assets/logo.png" alt="logo.png" height="200">
                                     <h1 class="black--text mb-2 display-1 text-center">OrgOrg</h1>
                                     <div class="subheading mb-4 text-center">Welcome to OrgOrg</div>
-                                    <v-btn
-                                            class="mt-12"
-                                            color="blue lighten-1"
-                                            dark
-                                            large
-                                            href="/pre-made-themes"
-                                    >
-                                        Get Started
-                                    </v-btn>
+                                    <router-link to="register" tag="v-btn" >
+                                        <v-btn
+                                                class="mt-12"
+                                                color="blue lighten-1"
+                                                dark
+                                                large
+                                        >
+                                            Get Started
+                                        </v-btn>
+                                    </router-link>
                                 </v-layout>
-                            </v-parallax>
+                            </v-orgorg>
                         </section>
 
                     </v-content>
