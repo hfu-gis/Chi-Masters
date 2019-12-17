@@ -79,7 +79,7 @@
                                                 </v-card-title>
                                                 <v-card-text>
                                                     Always see the next dates and with OrgOrg you can accept or decline this Meeting.
-                                                    You also can set this in your phone calendar
+                                                    You also can set this in your phone calendar.
                                                 </v-card-text>
                                             </v-card>
                                         </v-flex>
