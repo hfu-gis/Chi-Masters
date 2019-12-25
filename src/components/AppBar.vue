@@ -33,13 +33,11 @@
                 </v-btn>
             </template>
             <v-list>
-                <router-link to="profile" tag="v-btn">
-                    <v-list-item @click="navigateToProfile">
-                        <v-icon class="mr-2">mdi-account-circle</v-icon>
-                        <v-list-item-title>Profile</v-list-item-title>
-                    </v-list-item>
-                </router-link>
-                <v-list-item @click="navigateToAddMember">
+                <v-list-item @click="navigateToProfile">
+                    <v-icon class="mr-2">mdi-account-circle</v-icon>
+                    <v-list-item-title>Profile</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="changeOverlay">
                     <v-icon class="mr-2">mdi-account-multiple-plus</v-icon>
                     <v-list-item-title>Add member</v-list-item-title>
                 </v-list-item>
@@ -65,9 +63,13 @@
 </template>
 
 <script>
-
     export default {
         name: "AppBar",
+        data: () => {
+            return {
+                overlay: false
+            }
+        },
         props: {
             user: Object,
             loggedIn: Boolean,
@@ -84,8 +86,8 @@
             navigateToProfile() {
                 this.$router.push('profile');
             },
-            navigateToAddMember() {
-                this.$router.push('profile');
+            changeOverlay() {
+                this.$emit('changeOverlay');
             }
         },
     }

@@ -1,8 +1,22 @@
 <template>
   <v-app>
-    <AppBar @logout="logout" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization"/>
+    <AppBar @logout="logout" @changeOverlay="overlay = !overlay" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization"/>
     <v-content class="mx-6 my-6">
       <router-view @login="login"  :user="user" :loggedIn="loggedIn"/>
+      <v-overlay :value="overlay">
+        <v-card class="mx-auto">
+          <v-list-item three-line>
+            <v-list-item-content>
+              <div class="overline mb-4">Add Member</div>
+              <v-text-field label="E-mail" v-model="newEmail" :rules="emailRules"></v-text-field>
+            </v-list-item-content>
+          </v-list-item>
+          <v-card-actions>
+            <v-btn text class="primary" @click="sendInvite">Invite</v-btn>
+            <v-btn text class="error" @click="overlay = false">cancel</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-overlay>
     </v-content>
   </v-app>
 </template>
@@ -39,7 +53,13 @@
       role: null,
       firstName: null,
       lastName: null,
-      organization: null
+      organization: null,
+      overlay: false,
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ],
+      newEmail: null
     }),
     methods: {
       login(user) {
@@ -73,6 +93,9 @@
             self.login(res.user);
           })
         }
+      },
+      sendInvite() {
+        this.overlay = !this.overlay
       }
     },
     mounted() {
