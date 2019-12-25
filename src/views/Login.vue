@@ -32,6 +32,16 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
+                                <v-checkbox
+                                        v-model="checkbox"
+                                        label="Automatisch einloggen"
+                                ></v-checkbox>
+                            </v-col>
+                        </v-row>
+                    </v-flex>
+                    <v-flex xs12>
+                        <v-row justify="center">
+                            <v-col cols="10" sm="8" md="4">
                                 <v-btn :disabled="!valid" class="primary" @click="login">
                                     Login
                                 </v-btn>
@@ -53,6 +63,7 @@
             valid: false,
             email: 'test@test.de',
             password: '123456789',
+            checkbox: false,
             errorMessages: null,
             emailRules: [
                 v => !!v || 'E-mail is required',
@@ -64,9 +75,17 @@
         }),
         methods: {
             login: function(){
+                let self = this;
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch((err) => {
                     this.errorMessages = err.message;
                 }).then((res) => {
+
+                    window.localStorage.setItem('stayLoggedIn', self.checkbox);
+
+                    if(window.localStorage.getItem('stayLoggedIn')){
+                        window.localStorage.setItem('userEmail', self.email);
+                        window.localStorage.setItem('userPassword', self.password);
+                    }
                     this.$emit('login', res.user);
                     this.$router.push('home');
                 })

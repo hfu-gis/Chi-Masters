@@ -25,10 +25,10 @@
                 <v-icon>mdi-currency-usd</v-icon>
             </v-btn>
         </router-link>
-        <router-link v-if="user" to="settings" tag="v-btn">
+        <router-link v-if="user" to="settings" tag="v-btn" :user="user" :role="role" :organization="organization">
             <v-btn class="mr-2">
                 <span class="mr-2">Settings</span>
-                <v-icon>mdi-home</v-icon>
+                <v-icon>mdi-settings</v-icon>
             </v-btn>
         </router-link>
         <router-link v-if="!user" to="register" tag="v-btn">
@@ -43,7 +43,6 @@
                 <v-icon>mdi-login</v-icon>
             </v-btn>
         </router-link>
-
     </v-app-bar>
 </template>
 
@@ -53,6 +52,11 @@
         name: "AppBar",
         props: {
             user: Object,
+            loggedIn: Boolean,
+            role: String,
+            firstName: String,
+            lastName: String,
+            organization: String
         }
     }
 </script>
