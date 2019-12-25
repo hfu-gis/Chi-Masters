@@ -6,7 +6,7 @@
         </div>
 
         <v-spacer></v-spacer>
-        <!--Für Siew-->
+
         <router-link to="home" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Home</span>
@@ -25,12 +25,30 @@
                 <v-icon>mdi-currency-usd</v-icon>
             </v-btn>
         </router-link>
-        <router-link v-if="user" to="settings" tag="v-btn" :user="user" :role="role" :organization="organization">
-            <v-btn class="mr-2">
-                <span class="mr-2">Settings</span>
-                <v-icon>mdi-settings</v-icon>
-            </v-btn>
-        </router-link>
+        <v-menu offset-y v-if="user">
+            <template v-slot:activator="{ on }">
+                <v-btn v-on="on" class="mr-2">
+                    <span class="mr-2">Settings</span>
+                    <v-icon>mdi-settings</v-icon>
+                </v-btn>
+            </template>
+            <v-list>
+                <router-link to="profile" tag="v-btn">
+                    <v-list-item @click="navigateToProfile">
+                        <v-icon class="mr-2">mdi-account-circle</v-icon>
+                        <v-list-item-title>Profile</v-list-item-title>
+                    </v-list-item>
+                </router-link>
+                <v-list-item @click="navigateToAddMember">
+                    <v-icon class="mr-2">mdi-account-multiple-plus</v-icon>
+                    <v-list-item-title>Add member</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="logout">
+                    <v-icon class="mr-2">mdi-logout</v-icon>
+                    <v-list-item-title>Logout</v-list-item-title>
+                </v-list-item>
+            </v-list>
+        </v-menu>
         <router-link v-if="!user" to="register" tag="v-btn">
             <v-btn class="mr-2">
                 <span class="mr-2">Register</span>
@@ -57,7 +75,19 @@
             firstName: String,
             lastName: String,
             organization: String
-        }
+        },
+        methods: {
+            logout() {
+                this.$emit('logout');
+                this.$router.push('home');
+            },
+            navigateToProfile() {
+                this.$router.push('profile');
+            },
+            navigateToAddMember() {
+                this.$router.push('profile');
+            }
+        },
     }
 </script>
 

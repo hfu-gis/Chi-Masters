@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <AppBar :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization"/>
+    <AppBar @logout="logout" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization"/>
     <v-content class="mx-6 my-6">
-      <router-view @login="login" @logout="logout" :user="user" :loggedIn="loggedIn"/>
+      <router-view @login="login"  :user="user" :loggedIn="loggedIn"/>
     </v-content>
   </v-app>
 </template>
@@ -57,6 +57,9 @@
           this.user = null;
           this.loggedIn = false;
         })
+        window.localStorage.setItem('stayLoggedIn', false);
+        window.localStorage.setItem('userEmail', '');
+        window.localStorage.setItem('userPassword', '');
       },
       automatedLogin() {
         let self = this;

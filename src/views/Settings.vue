@@ -9,10 +9,10 @@
             </v-btn>
         </router-link>
         <v-btn @click="logout">
-            <span class="mr-2">Logout</span>
+            <span class="mr-2">Invite new Member</span>
             <v-icon>mdi-logout</v-icon>
         </v-btn>
-        <v-btn @click="logout" v-if="role">
+        <v-btn @click="logout">
             <span class="mr-2">Logout</span>
             <v-icon>mdi-logout</v-icon>
         </v-btn>
