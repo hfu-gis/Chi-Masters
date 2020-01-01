@@ -24,7 +24,7 @@
 <script>
   import AppBar from "./components/AppBar";
   import firebase from 'firebase';
-  import {db} from "./main";
+  import {db} from "@/main";
 
   var firebaseConfig = {
     apiKey: "AIzaSyBsCwWH4NHk9PXo1Tlwnynad5-jOZlL-lw",
@@ -95,7 +95,20 @@
         }
       },
       sendInvite() {
-        this.overlay = !this.overlay
+        let self = this;
+        db.collection('Invites').doc(self.generateToken()).set({
+          email: self.newEmail,
+          organization: self.organization
+        }).catch((res) => {
+          alert(res);
+        })
+
+      },
+      token() {
+        return Math.random().toString(36).substr(2);
+      },
+      generateToken () {
+        return this.token() + this.token();
       }
     },
     mounted() {
