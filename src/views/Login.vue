@@ -81,7 +81,6 @@
                 }).then((res) => {
 
                     window.localStorage.setItem('stayLoggedIn', self.checkbox);
-
                     if(window.localStorage.getItem('stayLoggedIn')){
                         window.localStorage.setItem('userEmail', self.email);
                         window.localStorage.setItem('userPassword', self.password);

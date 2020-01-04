@@ -25,6 +25,7 @@
   import AppBar from "./components/AppBar";
   import firebase from 'firebase';
   import {db} from "@/main";
+  import smtp from './smtp';
 
   var firebaseConfig = {
     apiKey: "AIzaSyBsCwWH4NHk9PXo1Tlwnynad5-jOZlL-lw",
@@ -76,7 +77,7 @@
         firebase.auth().signOut().then(() => {
           this.user = null;
           this.loggedIn = false;
-        })
+        });
         window.localStorage.setItem('stayLoggedIn', false);
         window.localStorage.setItem('userEmail', '');
         window.localStorage.setItem('userPassword', '');
@@ -96,19 +97,32 @@
       },
       sendInvite() {
         let self = this;
-        db.collection('Invites').doc(self.generateToken()).set({
+        let token = self.generateToken();
+        db.collection('Invites').doc(token).set({
           email: self.newEmail,
           organization: self.organization
         }).catch((res) => {
           alert(res);
-        })
-
+        });
+        self.sendInviteEmail(self.newEmail, self.organization, token);
       },
       token() {
         return Math.random().toString(36).substr(2);
       },
       generateToken () {
         return this.token() + this.token();
+      },
+      sendInviteEmail(email, organization, token){
+        smtp.Email.send({
+          Host : "smtp.elasticemail.com",
+          Username : "dennishawran@gmail.com",
+          Password : "DAB5196EB8BCA8C94CB2AD63F45745AD9A45",
+          To : email,
+          From : "dennishawran@gmail.com",
+          Subject : "You were invited to join the Organization " + organization,
+          Body : "Please click on the Link below to join the organization. localhost:8080/#/views/RegisterUser?t=" + token
+        }).then(message => alert(message)
+        );
       }
     },
     mounted() {
