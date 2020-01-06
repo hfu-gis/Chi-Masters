@@ -5,6 +5,11 @@
             <v-list-item-content>
                 {{member}}
             </v-list-item-content>
+            <v-list-item-action v-if="role == 'ADMIN'">
+                <v-btn>
+
+                </v-btn>
+            </v-list-item-action>
         </v-list>
     </v-content>
 </template>
@@ -15,7 +20,8 @@
     export default {
         name: "MemberList",
         props: {
-            organization: String
+            organization: String,
+            role: String
         },
         data: () => {
             return {

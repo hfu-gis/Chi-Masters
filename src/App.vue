@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <AppBar @logout="logout" @changeOverlay="overlay = !overlay" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization"/>
+    <AppBar @logout="logout" @changeOverlay="overlay = !overlay" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization" :loggedIn="loggedIn"/>
     <v-content class="mx-6 my-6">
-      <router-view @login="login"  :user="user" :loggedIn="loggedIn" :organization="organization"/>
+      <router-view @login="login"  :user="user" :loggedIn="loggedIn" :organization="organization" :role="role"/>
       <v-overlay :value="overlay">
         <v-card class="mx-auto">
           <v-list-item three-line>

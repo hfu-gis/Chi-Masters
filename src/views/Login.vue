@@ -61,8 +61,8 @@
         name: "Login",
         data: () => ({
             valid: false,
-            email: 'test@test.de',
-            password: '123456789',
+            email: '',
+            password: '',
             checkbox: false,
             errorMessages: null,
             emailRules: [
