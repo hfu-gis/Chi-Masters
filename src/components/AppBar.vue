@@ -33,13 +33,17 @@
                 </v-btn>
             </template>
             <v-list>
-                <v-list-item @click="navigateToProfile">
+                <v-list-item @click="navigateTo('profile')">
                     <v-icon class="mr-2">mdi-account-circle</v-icon>
                     <v-list-item-title>Profile</v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="changeOverlay">
                     <v-icon class="mr-2">mdi-account-multiple-plus</v-icon>
                     <v-list-item-title>Add member</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="navigateTo('memberList')">
+                    <v-icon class="mr-2">mdi-account-group</v-icon>
+                    <v-list-item-title>Member List</v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="logout">
                     <v-icon class="mr-2">mdi-logout</v-icon>
@@ -83,8 +87,8 @@
                 this.$emit('logout');
                 this.$router.push('home');
             },
-            navigateToProfile() {
-                this.$router.push('profile');
+            navigateTo(destiny) {
+                this.$router.push(destiny);
             },
             changeOverlay() {
                 this.$emit('changeOverlay');

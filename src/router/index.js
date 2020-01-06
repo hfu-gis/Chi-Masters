@@ -8,6 +8,7 @@ import Money from "../views/Money";
 import Settings from "../views/Settings";
 import Profile from "../views/Profile";
 import RegisterUser from "../views/RegisterUser";
+import MemberList from "../views/MemberList";
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -32,6 +33,11 @@ export default new VueRouter({
             path: '/views/Login',
             name: 'login',
             component: Login
+        },
+        {
+            path: '/views/MemberList',
+            name: 'memberList',
+            component: MemberList
         },
         {
             path: '/views/Register',
