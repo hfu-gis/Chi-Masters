@@ -5,9 +5,9 @@ import router from './router';
 import VueTextareaAutosize from 'vue-textarea-autosize';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-Vue.use(VueTextareaAutosize);
 
-Vue.config.productionTip = false
+Vue.use(VueTextareaAutosize);
+Vue.config.productionTip = false;
 
 export const db = firebase.firestore();
 new Vue({
