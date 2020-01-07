@@ -84,7 +84,8 @@
                         Organization: [self.name],
                         FirstName: self.firstName,
                         LastName: self.lastName,
-                        Role: 'MEMBER'
+                        Role: 'MEMBER',
+                        money: []
                     });
 
                     db.collection('Organization').doc(self.name).get().then((res) => {

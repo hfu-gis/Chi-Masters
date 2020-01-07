@@ -1,8 +1,8 @@
 <template>
     <v-content>
         <h1>Member</h1>
-        <v-list :key="member" v-for="(member, index) in members">
-            <v-list-item>
+        <v-list >
+            <v-list-item :key="member" v-for="(member, index) in members">
                 <v-list-item-content>
                     {{member}}
                 </v-list-item-content>
@@ -35,14 +35,14 @@
                     </v-menu>
                 </v-list-item-action>
                 <v-list-item-action v-if="role == 'ADMIN'">
-                    <v-btn class="accent">
+                    <v-btn class="accent" @click="deleteUserPopUp(member, index)">
                         <v-icon>mdi-delete-forever</v-icon>
                     </v-btn>
                 </v-list-item-action>
             </v-list-item>
         </v-list>
         <v-row justify="center">
-            <v-dialog v-model="dialog"  width="500px" max-width="90%">
+            <v-dialog v-model="dialogRole"  width="500px" max-width="90%">
                 <v-card>
                     <v-card-title class="headline">Change Role</v-card-title>
                     <v-card-text>
@@ -50,10 +50,29 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="accent" text @click="dialog = false">
+                        <v-btn class="accent" text @click="dialogRole = false">
                             Disagree
                         </v-btn>
                         <v-btn class="primary" text @click="changeRole()">
+                            Agree
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+        </v-row>
+        <v-row justify="center">
+            <v-dialog v-model="dialogDeleteUser"  width="500px" max-width="90%">
+                <v-card>
+                    <v-card-title class="headline">Delete User</v-card-title>
+                    <v-card-text>
+                        Are You sure you want to delete the user <b>{{userToDelete}}</b>?
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn class="accent" text @click="dialogDeleteUser = false">
+                            Disagree
+                        </v-btn>
+                        <v-btn class="primary" text @click="deleteUser">
                             Agree
                         </v-btn>
                     </v-card-actions>
@@ -76,10 +95,13 @@
             return {
                 members: [],
                 roles: [],
-                dialog: false,
+                dialogRole: false,
+                dialogDeleteUser: false,
                 changeRoleFromMember: null,
                 changeRoleFromMemberTo: null,
-                changeRoleFromIndex: null
+                changeRoleFromIndex: null,
+                userToDelete: null,
+                userToDeleteIndex: null
             }
         },
         methods: {
@@ -88,7 +110,6 @@
                 db.collection('Organization').doc(this.organization).get().then((res) => {
                     self.members = res.data().Users;
                 }).then(() => {
-                    //self.getRole(0);
                     for(let i in self.members){
                         db.collection('Users').doc(this.members[i]).get().then((res) => {
                             self.roles[self.roles.length] = res.data().Role;
@@ -101,17 +122,27 @@
                 this.changeRoleFromMember = member;
                 this.changeRoleFromMemberTo = role;
                 this.changeRoleFromIndex = index;
-                this.dialog = true;
+                this.dialogRole = true;
             },
             changeRole(){
                 let self = this;
                 db.collection('Users').doc(self.changeRoleFromMember).update({"Role": self.changeRoleFromMemberTo});
                 this.roles[self.changeRoleFromIndex] = self.changeRoleFromMemberTo;
-                self.dialog = false;
+                self.dialogRole = false;
 
                 this.changeRoleFromMember = null;
                 this.changeRoleFromMemberTo = null;
                 this.changeRoleFromIndex = null;
+            },
+            deleteUserPopUp(member, index) {
+                this.userToDelete = member;
+                this.userToDeleteIndex = index;
+                this.dialogDeleteUser = true;
+            },
+            deleteUser() {
+                this.members.splice(this.userToDeleteIndex, 1);
+                this.roles.splice(this.userToDeleteIndex, 1);
+                this.dialogDeleteUser = false;
             }
         },
         mounted() {

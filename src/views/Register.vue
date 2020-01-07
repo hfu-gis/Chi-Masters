@@ -101,7 +101,8 @@
                         Organization: [self.name],
                         FirstName: self.firstName,
                         LastName: self.lastName,
-                        Role: 'ADMIN'
+                        Role: 'ADMIN',
+                        money: []
                     });
                     db.collection('Organization').doc(self.name).set({
                         Users: [self.email]
