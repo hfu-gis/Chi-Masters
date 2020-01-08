@@ -8,7 +8,7 @@
             </v-list-item>
             <v-list v-if="ready">
                 <h2>Sales open to Pay</h2>
-                <v-list-item :key="sale" v-for="sale in salesOpen" :class="getClass(sale)" class="mb-2">
+                <v-list-item :key="sale" v-for="(sale, index) in salesOpen" :class="getClass(sale)" class="mb-2">
                     <v-list-item-content>
                         Date: <b>{{sale.Date}}</b>
                     </v-list-item-content>
@@ -18,12 +18,22 @@
                     <v-list-item-content>
                         Pupose: <b>{{sale.Purpose}}</b>
                     </v-list-item-content>
+                    <v-list-item-action v-if="role === 'ADMIN' || role === 'CASHIER'">
+                        <v-btn class="primary mr-2" @click="pay(index)">
+                            <v-icon>mdi-check-circle</v-icon>
+                        </v-btn>
+                    </v-list-item-action>
+                    <v-list-item-action v-if="role === 'ADMIN' || role === 'CASHIER'">
+                        <v-btn class="accent" @click="rejectOpen(index)">
+                            <v-icon>mdi-delete-forever</v-icon>
+                        </v-btn>
+                    </v-list-item-action>
                 </v-list-item>
             </v-list>
         </v-list>
         <v-list v-if="ready">
             <h2>All sales</h2>
-            <v-list-item :key="sale" v-for="sale in sales" :class="getClass(sale)" class="mb-2">
+            <v-list-item :key="sale" v-for="(sale, index) in sales" :class="getClass(sale)" class="mb-2">
                 <v-list-item-content>
                     Date: <b>{{sale.Date}}</b>
                 </v-list-item-content>
@@ -32,7 +42,12 @@
                 </v-list-item-content>
                 <v-list-item-content>
                     Pupose: <b>{{sale.Purpose}}</b>
-            </v-list-item-content>
+                </v-list-item-content>
+                <v-list-item-action v-if="role === 'ADMIN' || role === 'CASHIER'">
+                    <v-btn class="accent" @click="reject(index)">
+                        <v-icon>mdi-delete-forever</v-icon>
+                    </v-btn>
+                </v-list-item-action>
             </v-list-item>
         </v-list>
 
@@ -85,12 +100,15 @@
     export default {
         name: "Money",
         props: {
-            user: Object
+            user: Object,
+            role: String
         },
         data: () => {
             return {
                 sales: [],
                 salesOpen: [],
+                docIDSales: [],
+                docIDSalesOpen: [],
                 ready: false,
                 openToPay: 0,
                 openToGetPayed: 0,
@@ -104,14 +122,18 @@
         methods: {
             getMoney(){
                 let self = this;
+                self.openToGetPayed = 0;
+                self.openToPay = 0;
                 db.collection('Users').doc(self.user.email).collection('Money').get().then((res) => {
                     for(let i in res.docs){
                         self.sales[i] = res.docs[i].data();
+                        self.docIDSales[i] = res.docs[i].id;
                     }
                 }).then(() => {
                     db.collection('Users').doc(self.user.email).collection('MoneyOpen').get().then((reso) => {
                         for(let i in reso.docs){
                             self.salesOpen[i] = reso.docs[i].data();
+                            self.docIDSalesOpen[i] = reso.docs[i].id;
                             reso.docs[i].data().Amount < 0 ? self.openToPay += reso.docs[i].data().Amount : self.openToGetPayed += reso.docs[i].data().Amount;
                         }
                         self.ready = true;
@@ -144,6 +166,34 @@
                         self.dialog = false;
                     })
                 }
+            },
+            pay(index) {
+                let self = this;
+                db.collection('Users').doc(self.user.email).collection('MoneyOpen').doc(self.docIDSalesOpen[index]).get().then((res) => {
+                    db.collection('Users').doc(self.user.email).collection('Money').add({
+                        Amount: res.data().Amount,
+                        Date: res.data().Date,
+                        Purpose: res.data().Purpose
+                    });
+                }).then(() => {
+                    self.rejectOpen(index);
+                })
+            },
+            reject(index) {
+                let self = this;
+                db.collection('Users').doc(self.user.email).collection('Money').doc(self.docIDSales[index]).delete().then(() => {
+                    self.sales.splice(index, 1);
+                    self.docIDSales.splice(index, 1);
+                    self.getMoney();
+                });
+            },
+            rejectOpen(index) {
+                let self = this;
+                db.collection('Users').doc(self.user.email).collection('MoneyOpen').doc(self.docIDSalesOpen[index]).delete().then(() => {
+                    self.salesOpen.splice(index, 1);
+                    self.docIDSalesOpen.splice(index, 1);
+                    self.getMoney();
+                });
             }
         },
         mounted() {
