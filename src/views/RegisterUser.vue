@@ -52,7 +52,6 @@
 </template>
 
 <script>
-    // eslint-disable-next-line no-unused-vars
     import firebase from 'firebase';
     import {db} from '@/main';
 

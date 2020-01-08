@@ -2,7 +2,7 @@
   <v-app>
     <AppBar @logout="logout" @changeOverlay="overlay = !overlay" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization" :loggedIn="loggedIn"/>
     <v-content class="mx-6 my-6">
-      <router-view @login="login"  :user="user" :loggedIn="loggedIn" :organization="organization" :role="role"/>
+      <router-view @updateUserData="updateUserData" @login="login"  :user="user" :loggedIn="loggedIn" :organization="organization" :role="role" :firstName="firstName" :lastName="lastName"/>
       <v-overlay :value="overlay">
         <v-card class="mx-auto">
           <v-list-item three-line>
@@ -123,6 +123,13 @@
           Body : "Please click on the Link below to join the organization. localhost:8080/#/views/RegisterUser?t=" + token
         }).then(message => alert(message)
         );
+      },
+      updateUserData() {
+        let self = this;
+        db.collection('Users').doc(self.user.email).get().then((res) => {
+          self.firstName = res.data().FirstName;
+          self.lastName = res.data().LastName;
+        })
       }
     },
     mounted() {
