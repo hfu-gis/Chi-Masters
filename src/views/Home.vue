@@ -5,15 +5,15 @@
                 <v-app light>
                     <v-content>
                         <section>
-                            <v-orgorg src="assets/hero.jpeg" height="600">
+                            <v-content style="margin-top: -8em">
                                 <v-layout column align-center justify-center class="black--text">
-                                    <img src="assets/logo.png" alt="logo.png" height="200">
+                                    <img src="../assets/org_new.svg" alt="logo.png" height="300" class="mb-8">
                                     <h1 class="black--text mb-2 display-1 text-center">OrgOrg</h1>
                                     <div class="subheading mb-4 text-center">Welcome to OrgOrg</div>
                                     <router-link to="register" tag="v-btn" >
                                         <v-btn
                                                 class="mt-12"
-                                                color="blue lighten-1"
+                                                color="primary"
                                                 dark
                                                 large
                                         >
@@ -21,7 +21,7 @@
                                         </v-btn>
                                     </router-link>
                                 </v-layout>
-                            </v-orgorg>
+                            </v-content>
 
                         </section>
                         <v-layout
@@ -30,7 +30,7 @@
                                 class="my-12"
                                 align-center
                         >
-                            <v-flex xs12 sm4 class="my-4">
+                            <v-flex xs12 sm4 class="">
                                 <div class="text-center">
                                     <h2 class="headline">The best way to organize your organization</h2>
                                     <span class="subheading"> Join with your club </span>
