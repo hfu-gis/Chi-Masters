@@ -5,6 +5,7 @@
                 <v-app light>
                     <v-content>
                         <section>
+
                             <v-content style="margin-top: -8em">
                                 <v-layout column align-center justify-center class="black--text">
                                     <img src="../assets/org_new.svg" alt="logo.png" height="300" class="mb-8">
@@ -31,30 +32,16 @@
                                         <v-flex xs12 md4>
                                             <v-card flat class="transparent">
                                                 <v-card-text class="text-center">
-                                                    <v-icon x-large class="blue--text text--lighten-2">mdi-newspaper-variant-multiple-outline</v-icon>
+                                                    <v-icon x-large class="blue--text text--lighten-2">mdi-notebook-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
-                                                    <div class="headline text-center">News</div>
+                                                    <div class="headline text-center">What is OrgOrg?</div>
                                                 </v-card-title>
                                                 <v-card-text>
-                                                    You always stay up to date with our survey function.
-                                                    With OrgOrg you can easily take part of the survey from everywhere.
+                                                    OrgOrg is an online planner for your club, association, organizations et cetera.
+                                                    If a lot is written in your chat group and you miss out on many appointments because of this,
+                                                    then is OrgOrg the best choise for you and your members.
 
-                                                </v-card-text>
-                                            </v-card>
-                                        </v-flex>
-                                        <v-flex xs12 md4>
-                                            <v-card flat class="transparent">
-                                                <v-card-text class="text-center">
-                                                    <v-icon x-large class="blue--text text--lighten-2">mdi-cash-multiple</v-icon>
-                                                </v-card-text>
-                                                <v-card-title primary-title class="layout justify-center">
-                                                    <div class="headline">Outstanding Balance</div>
-                                                </v-card-title>
-                                                <v-card-text>
-                                                    You still have to pay to the cash register and you forgot it?
-                                                    OrgOrg reminds you of this.
-                                                    Your outstanding balance will be reset after the payment.
                                                 </v-card-text>
                                             </v-card>
                                         </v-flex>
@@ -64,11 +51,28 @@
                                                     <v-icon x-large class="blue--text text--lighten-2">mdi-calendar-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
-                                                    <div class="headline text-center">Next Meeting</div>
+                                                    <div class="headline">Next Meeting</div>
                                                 </v-card-title>
                                                 <v-card-text>
-                                                    Always see the next dates and with OrgOrg you can accept or decline this Meeting.
-                                                    You also can set this in your phone calendar.
+                                                    Stay up to date with OrgOrg.
+                                                    You always see the next dates in your calendar and don't miss this among the many chats of your chat group.
+                                                    You can also accept or decline this Meeting and set this in your phone calendar.
+                                                </v-card-text>
+                                            </v-card>
+                                        </v-flex>
+                                        <v-flex xs12 md4>
+                                            <v-card flat class="transparent">
+                                                <v-card-text class="text-center">
+                                                    <v-icon x-large class="blue--text text--lighten-2">mdi-cash-multiple</v-icon>
+                                                </v-card-text>
+                                                <v-card-title primary-title class="layout justify-center">
+                                                    <div class="headline text-center">Outstanding Balance</div>
+                                                </v-card-title>
+                                                <v-card-text>
+                                                    You still have to pay to the cash register and you forgot it?
+                                                    OrgOrg reminds you of this.
+                                                    Your outstanding balance will be reset after the payment.
+                                                    If the organization owes you money, you can also register it.
                                                 </v-card-text>
                                             </v-card>
                                         </v-flex>
