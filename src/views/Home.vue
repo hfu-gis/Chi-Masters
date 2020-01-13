@@ -8,18 +8,7 @@
                             <v-content style="margin-top: -8em">
                                 <v-layout column align-center justify-center class="black--text">
                                     <img src="../assets/org_new.svg" alt="logo.png" height="300" class="mb-8">
-                                    <h1 class="black--text mb-2 display-1 text-center">OrgOrg</h1>
-                                    <div class="subheading mb-4 text-center">Welcome to OrgOrg</div>
-                                    <router-link to="register" tag="v-btn" >
-                                        <v-btn
-                                                class="mt-12"
-                                                color="primary"
-                                                dark
-                                                large
-                                        >
-                                            Get Started
-                                        </v-btn>
-                                    </router-link>
+                                    <h1 class="black--text mb-2 display-1 text-center">Welcome to OrgOrg</h1>
                                 </v-layout>
                             </v-content>
 
@@ -86,6 +75,16 @@
                                     </v-layout>
                                 </v-container>
                             </v-flex>
+                            <router-link to="register" tag="v-btn" >
+                                <v-btn
+                                        class="mt-12"
+                                        color="primary"
+                                        dark
+                                        large
+                                >
+                                    Get Started
+                                </v-btn>
+                            </router-link>
                         </v-layout>
                         <section>
 
