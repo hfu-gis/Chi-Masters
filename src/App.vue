@@ -120,7 +120,7 @@
           To : email,
           From : "dennishawran@gmail.com",
           Subject : "You were invited to join the Organization " + organization,
-          Body : "Please click on the Link below to join the organization. localhost:8080/#/views/RegisterUser?t=" + token
+          Body : "Please click on the Link below to join the organization. \n https://orgorg-b30a0.firebaseapp.com/#/views/RegisterUser?t=" + token
         }).then(message => alert(message)
         );
       },
