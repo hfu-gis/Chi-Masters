@@ -8,7 +8,7 @@
                             <v-content style="margin-top: -8em">
                                 <v-layout column align-center justify-center class="black--text">
                                     <img src="../assets/org_new.svg" alt="logo.png" height="300" class="mb-8">
-                                    <h1 class="black--text mb-2 display-1 text-center">Welcome to OrgOrg</h1>
+                                    <h1 class="black--text mb-2 display-1 text-center primary-color">Welcome to OrgOrg</h1>
                                 </v-layout>
                             </v-content>
                         </section>
@@ -296,5 +296,15 @@
 </script>
 
 <style scoped>
+    * {
+        color: #fff !important;
+    }
+    #app{
+        background: rgba(0, 0, 0, 0) !important;
+    }
+    .primary-color {
+        color: #fff !important;
+    }
+
 
 </style>

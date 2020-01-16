@@ -1,23 +1,25 @@
 <template>
-  <v-app>
-    <AppBar @logout="logout" @changeOverlay="overlay = !overlay" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization" :loggedIn="loggedIn"/>
-    <v-content class="mx-6 my-6">
-      <router-view @updateUserData="updateUserData" @login="login"  :user="user" :loggedIn="loggedIn" :organization="organization" :role="role" :firstName="firstName" :lastName="lastName"/>
-      <v-overlay :value="overlay">
-        <v-card class="mx-auto">
-          <v-list-item three-line>
-            <v-list-item-content>
-              <div class="overline mb-4">Add Member</div>
-              <v-text-field label="E-mail" v-model="newEmail" :rules="emailRules"></v-text-field>
-            </v-list-item-content>
-          </v-list-item>
-          <v-card-actions>
-            <v-btn text class="primary" @click="sendInvite">Invite</v-btn>
-            <v-btn text class="error" @click="overlay = false">cancel</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-overlay>
-    </v-content>
+  <v-app id="background">
+    <div id="overlay">
+      <AppBar @logout="logout" @changeOverlay="overlay = !overlay" :user="user" :role="role" :firstName="firstName" :lastName="lastName" :organization="organization" :loggedIn="loggedIn"/>
+      <v-content class="mx-6 my-6">
+        <router-view @updateUserData="updateUserData" @login="login"  :user="user" :loggedIn="loggedIn" :organization="organization" :role="role" :firstName="firstName" :lastName="lastName"/>
+        <v-overlay :value="overlay">
+          <v-card class="mx-auto">
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="overline mb-4">Add Member</div>
+                <v-text-field label="E-mail" v-model="newEmail" :rules="emailRules"></v-text-field>
+              </v-list-item-content>
+            </v-list-item>
+            <v-card-actions>
+              <v-btn text class="primary" @click="sendInvite">Invite</v-btn>
+              <v-btn text class="error" @click="overlay = false">cancel</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-overlay>
+      </v-content>
+    </div>
   </v-app>
 </template>
 
@@ -137,3 +139,21 @@
     }
   };
 </script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  #background{
+    margin: 0;
+    padding: 0;
+    background-image: url("./assets/desknew.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+  }
+</style>
