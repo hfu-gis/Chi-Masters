@@ -35,19 +35,19 @@
             </template>
             <v-list>
                 <v-list-item @click="navigateTo('profile')">
-                    <v-icon class="mr-2">mdi-account-circle</v-icon>
+                    <v-icon class="mr-2 black--text" color="#000">mdi-account-circle</v-icon>
                     <v-list-item-title>Profile</v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="changeOverlay">
-                    <v-icon class="mr-2">mdi-account-multiple-plus</v-icon>
+                    <v-icon class="mr-2 black--text">mdi-account-multiple-plus</v-icon>
                     <v-list-item-title>Add member</v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="navigateTo('memberList')">
-                    <v-icon class="mr-2">mdi-account-group</v-icon>
+                    <v-icon class="mr-2 black--text">mdi-account-group</v-icon>
                     <v-list-item-title>Member List</v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="logout">
-                    <v-icon class="mr-2">mdi-logout</v-icon>
+                    <v-icon class="mr-2 black--text">mdi-logout</v-icon>
                     <v-list-item-title>Logout</v-list-item-title>
                 </v-list-item>
             </v-list>

@@ -88,16 +88,16 @@
                     <v-card v-if="openToGetPayed != 0 || openToPay != 0">
                         <v-list-item three-line>
                             <v-list-item-content>
-                                <div class="overline mb-2">MONEY $</div>
-                                <v-list-item-title class="headline mb-3">Open amounts</v-list-item-title>
-                                <v-list-item-subtitle>Outstanding balance to pay: {{openToPay}}$</v-list-item-subtitle>
-                                <v-list-item-subtitle>Outstanding balance to get payed: {{openToGetPayed}}$</v-list-item-subtitle>
+                                <div class="overline mb-2 black--text">MONEY $</div>
+                                <v-list-item-title class="headline mb-3 black--text">Open amounts</v-list-item-title>
+                                <v-list-item-subtitle class="black--text">Outstanding balance to pay: {{openToPay}}$</v-list-item-subtitle>
+                                <v-list-item-subtitle class="black--text">Outstanding balance to get payed: {{openToGetPayed}}$</v-list-item-subtitle>
                             </v-list-item-content>
                         </v-list-item>
                         <v-card-actions>
                             <router-link to="money" tag="v-btn">
                                 <v-btn class="ml-2 mb-2">
-                                    <span class="mr-2">Money</span>
+                                    <span class="mr-2 black--text">Money</span>
                                 </v-btn>
                             </router-link>
                         </v-card-actions>
@@ -109,23 +109,23 @@
                 <v-card class="mx-auto mb-12" min-height="35em"> <!--:color="event.color"-->
                     <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" :aspect-ratio="16/9"></v-img>
                     <v-card-title>
-                        <div class="display-1 mb-2">{{eventsOpen[0].name}}</div>
+                        <div class="display-1 mb-2 black--text">{{eventsOpen[0].name}}</div>
                     </v-card-title>
                     <v-card-text>
                         <v-row cols="12">
                             <v-col cols="6">
-                                <p><b>date:</b><br>{{eventsOpen[0].date}}</p>
-                                <p><b>details:</b><br>{{eventsOpen[0].details}}</p>
+                                <p class="black--text"><b>date:</b><br>{{eventsOpen[0].date}}</p>
+                                <p class="black--text"><b>details:</b><br>{{eventsOpen[0].details}}</p>
                             </v-col>
                         </v-row>
                     </v-card-text>
                     <v-card-actions class="justify-lg-space-around">
                         <v-chip @click="acceptEvent(0)">
-                            <v-icon color="green" left>mdi-check-circle</v-icon>
+                            <v-icon class="black--text" color="green" left>mdi-check-circle</v-icon>
                             Accept
                         </v-chip>
                         <v-chip @click="declineEvent(0)">
-                            <v-icon color="red" left>mdi-close-circle</v-icon>
+                            <v-icon class="black--text" color="red" left>mdi-close-circle</v-icon>
                             Decline
                         </v-chip>
                     </v-card-actions>
@@ -135,23 +135,23 @@
                 <v-card class="mx-auto mb-12" min-height="35em"> <!--:color="event.color"-->
                     <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" :aspect-ratio="16/9"></v-img>
                     <v-card-title>
-                        <div class="display-1 mb-2">{{eventsOpen[1].name}}</div>
+                        <div class="display-1 mb-2 black--text">{{eventsOpen[1].name}}</div>
                     </v-card-title>
                     <v-card-text>
                         <v-row cols="12">
                             <v-col cols="6">
-                                <p><b>date:</b><br>{{eventsOpen[1].date}}</p>
-                                <p><b>details:</b><br>{{eventsOpen[1].details}}</p>
+                                <p class="black--text"><b>date:</b><br>{{eventsOpen[1].date}}</p>
+                                <p class="black--text"><b>details:</b><br>{{eventsOpen[1].details}}</p>
                             </v-col>
                         </v-row>
                     </v-card-text>
                     <v-card-actions class="justify-lg-space-around">
                         <v-chip @click="acceptEvent(1)">
-                            <v-icon color="green" left>mdi-check-circle</v-icon>
+                            <v-icon class="black--text" color="green" left>mdi-check-circle</v-icon>
                             Accept
                         </v-chip>
                         <v-chip @click="declineEvent(1)">
-                            <v-icon color="red" left>mdi-close-circle</v-icon>
+                            <v-icon class="black--text" color="red" left>mdi-close-circle</v-icon>
                             Decline
                         </v-chip>
                     </v-card-actions>
@@ -160,21 +160,21 @@
             </v-row>
             <v-row cols="12" justify="center" class="mb-4">
                 <v-col cols="6">
-                    <v-card>
+                    <v-card v-if="eventsAccepted.length > 0">
                         <v-list>
                             <v-list-item three-line :key="event" v-for="(event, index) in eventsAccepted">
                                 <v-list-item-content>
-                                    <v-list-item-title>{{event.name}}</v-list-item-title>
-                                    <v-list-item-subtitle>
+                                    <v-list-item-title class="black--text">{{event.name}}</v-list-item-title>
+                                    <v-list-item-subtitle class="black--text">
                                         {{event.date}}
                                     </v-list-item-subtitle>
-                                    <v-list-item-subtitle>
+                                    <v-list-item-subtitle class="black--text">
                                         {{event.details}}
                                     </v-list-item-subtitle>
                                 </v-list-item-content>
                                 <v-list-item-icon>
                                     <v-btn @click="declineAccepted(index)" color="secondary" class="mt-3">
-                                        <v-icon>mdi-minus-circle</v-icon>
+                                        <v-icon class="black--text">mdi-minus-circle</v-icon>
                                     </v-btn>
                                 </v-list-item-icon>
                             </v-list-item>

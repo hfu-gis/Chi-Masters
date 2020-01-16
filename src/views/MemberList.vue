@@ -1,9 +1,9 @@
 <template>
     <v-content>
         <h1>Member</h1>
-        <v-list >
-            <v-list-item :key="member" v-for="(member, index) in members">
-                <v-list-item-content>
+        <v-list class="transparent">
+            <v-list-item class="list-item mb-2" :key="member" v-for="(member, index) in members">
+                <v-list-item-content class="white--text">
                     {{member}}
                 </v-list-item-content>
                 <v-list-item-action v-if="role === 'ADMIN' || role === 'CASHIER'">
@@ -16,19 +16,19 @@
                         </template>
                         <v-list v-model="roles[index]">
                             <v-list-item @click="changeRoleTo(member, 'ADMIN', index)">
-                                <v-icon class="mr-2">mdi-star-outline</v-icon>
+                                <v-icon class="mr-2 black--text">mdi-star-outline</v-icon>
                                 <v-list-item-title>Admin</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="changeRoleTo(member, 'CASHIER', index)">
-                                <v-icon class="mr-2">mdi-cash-usd-outline</v-icon>
+                                <v-icon class="mr-2 black--text">mdi-cash-usd-outline</v-icon>
                                 <v-list-item-title>Cashier</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="changeRoleTo(member, 'WRITER', index)">
-                                <v-icon class="mr-2">mdi-lead-pencil</v-icon>
+                                <v-icon class="mr-2 black--text">mdi-lead-pencil</v-icon>
                                 <v-list-item-title>Writer</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="changeRoleTo(member, 'MEMBER', index)">
-                                <v-icon class="mr-2">mdi-account</v-icon>
+                                <v-icon class="mr-2 black--text">mdi-account</v-icon>
                                 <v-list-item-title>Member</v-list-item-title>
                             </v-list-item>
                         </v-list>
@@ -152,5 +152,9 @@
 </script>
 
 <style scoped>
+    .list-item {
+        background-color: rgba(0, 0, 0, 0.3) !important;
+        border-radius: 3em;
+    }
 
 </style>

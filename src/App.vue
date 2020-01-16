@@ -148,11 +148,12 @@
     margin: 0;
     padding: 0;
     background-image: url("./assets/desknew.jpg");
+    opacity: 0.7;
     background-repeat: no-repeat;
     background-size: cover;
   }
   #overlay {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
     width: 100%;
   }

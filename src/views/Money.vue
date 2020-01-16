@@ -1,12 +1,12 @@
 <template>
     <v-content>
         <h1>Money</h1>
-        <v-list v-if="(openToPay != 0 || openToGetPayed != 0) && ready">
+        <v-list v-if="(openToPay != 0 || openToGetPayed != 0) && ready" class="transparent">
             <v-list-item>
-                <h2>Open to pay: <span style="color: rgb(200, 0, 0)">{{openToPay}}</span> $</h2><v-spacer></v-spacer>
-                <h2>Open to get payed: <span style="color: rgb(0, 200, 0)">{{openToGetPayed}}</span> $</h2>
+                <h2 class="white--text">Open to pay: <span style="color: rgb(200, 0, 0)">{{openToPay}}</span> $</h2><v-spacer></v-spacer>
+                <h2 class="white--text">Open to get payed: <span style="color: rgb(0, 200, 0)">{{openToGetPayed}}</span> $</h2>
             </v-list-item>
-            <v-list v-if="ready">
+            <v-list v-if="ready" class="transparent">
                 <h2>Sales open to Pay</h2>
                 <v-list-item :key="sale" v-for="(sale, index) in salesOpen" :class="getClass(sale)" class="mb-2">
                     <v-list-item-content>
@@ -31,7 +31,7 @@
                 </v-list-item>
             </v-list>
         </v-list>
-        <v-list v-if="ready">
+        <v-list v-if="ready" class="transparent">
             <h2>All sales</h2>
             <v-list-item :key="sale" v-for="(sale, index) in sales" :class="getClass(sale)" class="mb-2">
                 <v-list-item-content>
@@ -214,10 +214,13 @@
         width: 5em;
     }
     .negative{
-        background-color: rgba(200, 0, 0, 0.2);
+        background-color: rgba(200, 0, 0, 0.5);
+        border-radius: 3em;
     }
     .positive{
-        background-color: rgba(0, 200, 0, 0.2);
+        background-color: rgba(0, 200, 0, 0.5);
+        border-radius: 3em;
     }
+
 
 </style>

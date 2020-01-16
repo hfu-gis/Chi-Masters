@@ -1,7 +1,7 @@
 <template>
     <v-content>
         <v-row justify="center">
-            <v-card class="justify-center" max-width="80%"  min-width="50%" elevation="5">
+            <v-card class="justify-center transparent" max-width="90%"  min-width="70%" elevation="0">
                 <v-row justify="center" class="mb-12">
                     <v-card-title style="font-size: 2.3em">Your profile</v-card-title>
                 </v-row>
@@ -12,7 +12,7 @@
                 </v-row>
                 <v-row cols="12" justify="center" class="mt-8">
                     <v-col cols="5">
-                        <v-text-field v-model="firstNameNew" tex type="text" label="first name" :placeholder="firstName" @input="changeFirstName"></v-text-field>
+                        <v-text-field class="black-style" v-model="firstNameNew" tex type="text" label="first name" :placeholder="firstName" @input="changeFirstName"></v-text-field>
                     </v-col>
                     <v-col cols="5">
                         <v-text-field v-model="lastNameNew" type="text" label="last name" :placeholder="lastName" @input="changeLastName"></v-text-field>
@@ -24,7 +24,7 @@
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-12">
-                    <v-card max-width="90%" min-width="80%">
+                    <v-card max-width="90%" min-width="80%" class="transparent" elevation="0">
                         <v-row justify="center">
                             <v-card-title>Change Password</v-card-title>
                         </v-row>
@@ -127,6 +127,9 @@
 </script>
 
 <style scoped>
+    .background-overlay {
+        background-color: rgba(0, 0, 0, 0.3) !important;
+    }
     .error{
         background-color: transparent !important;
         color: red;
