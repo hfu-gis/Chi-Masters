@@ -7,17 +7,17 @@
                         <section>
                             <v-content style="margin-top: -8em">
                                 <v-layout column align-center justify-center class="black--text">
-                                    <img src="../assets/org_new.svg" alt="logo.png" height="300" class="mb-8">
-                                    <h1 class="black--text mb-2 display-1 text-center primary-color">Welcome to OrgOrg</h1>
+                                    <img src="../assets/org_new.svg" alt="logo.png" height="300" class="mb-10">
+                                    <h1 class="black--text mb-1 display-1 text-center primary-color">Welcome to OrgOrg</h1>
                                 </v-layout>
                             </v-content>
                         </section>
-                        <v-layout column wrap class="my-12" align-center>
+                        <v-layout column wrap class="my-8" align-center>
                             <v-flex xs12 sm4 class="">
                                 <div class="text-center">
-                                    <h2 class="headline">The best way to organize your organization</h2>
+                                    <h2 class="headline" >The best way to organize your organization</h2>
                                     <router-link to="register" tag="v-btn" >
-                                        <v-btn class="mt-12" color="#ff9600" dark large>
+                                        <v-btn class="mt-12 mb-6" color="#ff9600" dark large>
                                             Join with your club
                                         </v-btn>
                                     </router-link>
@@ -32,7 +32,7 @@
                                                     <v-icon x-large class="orange--text text--lighten-1">mdi-notebook-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
-                                                    <div class="headline text-center">What is OrgOrg?</div>
+                                                    <div class="headline text-center" style="color: #42A5F5 !important;">What is OrgOrg?</div>
                                                 </v-card-title>
                                                 <v-card-text>
                                                     OrgOrg is an online planner for your club, association, organizations et cetera.
@@ -48,7 +48,7 @@
                                                     <v-icon x-large class="orange--text text--lighten-1">mdi-calendar-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
-                                                    <div class="headline">Next Meeting</div>
+                                                    <div class="headline" style="color: #42A5F5 !important;">Next Meeting</div>
                                                 </v-card-title>
                                                 <v-card-text>
                                                     Stay up to date with OrgOrg.
@@ -63,7 +63,7 @@
                                                     <v-icon x-large color="#ff9600" class="orange--text text--lighten-1">mdi-cash-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
-                                                    <div class="headline text-center">Outstanding Balance</div>
+                                                    <div class="headline text-center" style="color: #42A5F5 !important;">Outstanding Balance</div>
                                                 </v-card-title>
                                                 <v-card-text>
                                                     You still have to pay to the cash register and you forgot it?
