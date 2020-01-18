@@ -5,10 +5,10 @@
         <v-col>
             <v-sheet height="64">
                 <v-toolbar flat color="white">
-                    <v-btn color="#ff9600" dark @click.stop="dialog = true">
+                    <v-btn style="color: #fff !important;" color="#ff9600" dark @click.stop="dialog = true">
                         New Event
                     </v-btn>
-                    <v-btn outlined class="mr-4" style="color: #000000" @click="setToday">
+                    <v-btn class="mr-4 ml-4" style="color: #fff !important;" color="#ff9600" dark @click="setToday">
                         Today
                     </v-btn>
                     <v-btn  color="#ff9600" @click="prev">
@@ -17,11 +17,11 @@
                     <v-btn  @click="next" color="#ff9600">
                         <v-icon small color="#ff9600">mdi-chevron-right  </v-icon>
                     </v-btn>
-                    <v-toolbar-title>{{ title }}</v-toolbar-title>
+                    <v-toolbar-title class="ml-8" style="color: #000">{{ title }}</v-toolbar-title>
                     <div class="flex-grow-1"></div>
                     <v-menu bottom right>
                         <template v-slot:activator="{ on }">
-                            <v-btn outlined v-on="on">
+                            <v-btn  v-on="on" class="mr-4 ml-4" style="color: #fff !important;" color="#ff9600" dark @click="setToday">
                                 <span>{{ typeToLabel[type] }}</span>
                                 <v-icon right>mdi-menu-down</v-icon>
                             </v-btn>
@@ -82,7 +82,7 @@
                 <v-calendar
                         ref="calendar"
                         v-model="focus"
-                        color="ff9600"
+                        color="#ff9600"
                         :events="events"
                         :event-color="getEventColor"
                         :event-margin-bottom="3"
@@ -293,15 +293,8 @@
         }
     }
 </script>
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+<style scoped>
+    .v-btn {
+        color: #000 !important;
+    }
+</style>
