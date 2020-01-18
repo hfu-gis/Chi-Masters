@@ -29,6 +29,7 @@
   import {db} from "@/main";
   import smtp from './smtp';
 
+
   var firebaseConfig = {
     apiKey: "AIzaSyBsCwWH4NHk9PXo1Tlwnynad5-jOZlL-lw",
     authDomain: "orgorg-b30a0.firebaseapp.com",

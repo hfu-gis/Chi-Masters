@@ -67,7 +67,7 @@
                                     <v-text-field v-model="newAmount" label="Solo" placeholder="Amount" solo></v-text-field>
                                 </v-col>
                                 <v-col cols="12" sm="8" md="9">
-                                    <v-text-field v-model="newPurpose" label="Pupose"></v-text-field>
+                                    <v-text-field v-model="newPurpose" label="Purpose"></v-text-field>
                                 </v-col>
                             </v-row>
                             <v-row>

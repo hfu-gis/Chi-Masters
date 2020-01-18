@@ -143,8 +143,8 @@
 </template>
 
 <script>
-    import { db } from '@/App'
-    export default {
+    import { db } from '@/main'
+        export default {
         data: () => ({
             today: new Date().toISOString().substr(0, 10),
             focus: new Date().toISOString().substr(0, 10),
