@@ -16,7 +16,11 @@
                             <v-flex xs12 sm4 class="">
                                 <div class="text-center">
                                     <h2 class="headline">The best way to organize your organization</h2>
-                                    <span class="subheading"> Join with your club </span>
+                                    <router-link to="register" tag="v-btn" >
+                                        <v-btn class="mt-12" color="primary" dark large>
+                                            Join with your club
+                                        </v-btn>
+                                    </router-link>
                                 </div>
                             </v-flex>
                             <v-flex xs12>
@@ -72,11 +76,6 @@
                                     </v-layout>
                                 </v-container>
                             </v-flex>
-                            <router-link to="register" tag="v-btn" >
-                                <v-btn class="mt-12" color="primary" dark large>
-                                    Get Started
-                                </v-btn>
-                            </router-link>
                         </v-layout>
                     </v-content>
                 </v-app>

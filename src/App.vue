@@ -148,7 +148,6 @@
     margin: 0;
     padding: 0;
     background-image: url("./assets/desknew.jpg");
-    opacity: 0.7;
     background-repeat: no-repeat;
     background-size: cover;
   }
