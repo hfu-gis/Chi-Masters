@@ -152,7 +152,7 @@
     background-size: cover;
   }
   #overlay {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     height: 100%;
     width: 100%;
   }

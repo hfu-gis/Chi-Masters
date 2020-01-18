@@ -17,7 +17,7 @@
                                 <div class="text-center">
                                     <h2 class="headline">The best way to organize your organization</h2>
                                     <router-link to="register" tag="v-btn" >
-                                        <v-btn class="mt-12" color="primary" dark large>
+                                        <v-btn class="mt-12" color="#ff9600" dark large>
                                             Join with your club
                                         </v-btn>
                                     </router-link>
@@ -60,7 +60,7 @@
                                         <v-flex xs12 md4>
                                             <v-card flat class="transparent">
                                                 <v-card-text class="text-center">
-                                                    <v-icon x-large class="blue--text text--lighten-2">mdi-cash-multiple</v-icon>
+                                                    <v-icon x-large color="#ff9600" class="text--lighten-2">mdi-cash-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
                                                     <div class="headline text-center">Outstanding Balance</div>

@@ -8,7 +8,7 @@
                 <p class="subheading font-weight-regular">
                     Login via Google or with your email and password,
                     <br>if you need to create a Account
-                    <router-link to="register">register here</router-link>
+                    <router-link to="register" style="color: #ff9600">register here</router-link>
                 </p>
             </v-flex>
             <v-flex>
@@ -16,7 +16,7 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field label="E-mail" v-model="email" :rules="emailRules"
+                                <v-text-field color="#ff9600" class="textFieldClass" label="E-mail" v-model="email" :rules="emailRules"
                                 ></v-text-field>
                             </v-col>
                         </v-row>
@@ -24,7 +24,7 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field @input="resetError" :error-messages="errorMessages" type="password" label="Password" v-model="password" :rules="passwordRules"
+                                <v-text-field color="#ff9600" @input="resetError" :error-messages="errorMessages" type="password" label="Password" v-model="password" :rules="passwordRules"
                                 ></v-text-field>
                             </v-col>
                         </v-row>
@@ -32,7 +32,7 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-checkbox
+                                <v-checkbox color="#ff9600"
                                         v-model="checkbox"
                                         label="Automatisch einloggen"
                                 ></v-checkbox>
@@ -42,7 +42,7 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-btn :disabled="!valid" class="primary" @click="login">
+                                <v-btn color="#ff9600" :disabled="!valid" @click="login">
                                     Login
                                 </v-btn>
                             </v-col>
