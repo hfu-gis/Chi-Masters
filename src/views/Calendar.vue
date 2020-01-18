@@ -1,40 +1,21 @@
-Skip to content
-Why GitHub?
-it was a youtube tutorial to see how things (database connecting) work: https://www.youtube.com/watch?v=2NOsjTT1b_k
-Enterprise
-Explore
-Marketplace
-Pricing
-Search
 
-Sign in
-Sign up
-43219jsfanatik/vuestacks-calendar-vue-firebase
-Code Issues 1 Pull requests 0 Projects 0 Security Insights
-Join GitHub today
-GitHub is home to over 40 million developers working together to host and review code, manage projects, and build software together.
-
-vuestacks-calendar-vue-firebase/src/components/Calendar.vue
-@jsfanatik jsfanatik Update Calendar.vue
-3950b5a on 1 Nov
-293 lines (287 sloc)  8.57 KB
 
 <template>
     <v-row class="fill-height">
         <v-col>
             <v-sheet height="64">
                 <v-toolbar flat color="white">
-                    <v-btn color="primary" dark @click.stop="dialog = true">
+                    <v-btn color="#ff9600" dark @click.stop="dialog = true">
                         New Event
                     </v-btn>
-                    <v-btn outlined class="mr-4" @click="setToday">
+                    <v-btn outlined class="mr-4" style="color: #000000" @click="setToday">
                         Today
                     </v-btn>
-                    <v-btn fab text small @click="prev">
-                        <v-icon small>mdi-chevron-left</v-icon>
+                    <v-btn  color="#ff9600" @click="prev">
+                        <v-icon small>mdi-chevron-left </v-icon>
                     </v-btn>
-                    <v-btn fab text small @click="next">
-                        <v-icon small>mdi-chevron-right</v-icon>
+                    <v-btn  @click="next" color="#ff9600">
+                        <v-icon small color="#ff9600">mdi-chevron-right  </v-icon>
                     </v-btn>
                     <v-toolbar-title>{{ title }}</v-toolbar-title>
                     <div class="flex-grow-1"></div>
@@ -63,16 +44,16 @@ vuestacks-calendar-vue-firebase/src/components/Calendar.vue
                 </v-toolbar>
             </v-sheet>
 
-            <v-dialog v-model="dialog" max-width="500">
+            <v-dialog v-model="dialog" max-width="700">
                 <v-card>
                     <v-container>
                         <v-form @submit.prevent="addEvent">
-                            <v-text-field v-model="name" type="text" label="event name (required)"></v-text-field>
-                            <v-text-field v-model="details" type="text" label="detail"></v-text-field>
-                            <v-text-field v-model="start" type="date" label="start (required)"></v-text-field>
-                            <v-text-field v-model="end" type="date" label="end (required)"></v-text-field>
-                            <v-text-field v-model="color" type="color" label="color (click to open color menu)"></v-text-field>
-                            <v-btn type="submit" color="primary" class="mr-4" @click.stop="dialog = false">
+                            <v-text-field v-model="name" type="text" style="color: #000000" label="event name (required)"></v-text-field>
+                            <v-text-field v-model="details" type="text" style="color: #000000" label="detail"></v-text-field>
+                            <v-text-field v-model="start" type="date" style="color: #000000" label="start (required)"></v-text-field>
+                            <v-text-field v-model="end" type="date" style="color: #000000" label="end (required)"></v-text-field>
+                            <v-text-field v-model="color" type="color" style="color: #000000" label="color (click to open color menu)"></v-text-field>
+                            <v-btn type="submit" color="primary" style="color: #000000" class="mr-4" @click.stop="dialog = false">
                                 create event
                             </v-btn>
                         </v-form>
@@ -84,11 +65,11 @@ vuestacks-calendar-vue-firebase/src/components/Calendar.vue
                 <v-card>
                     <v-container>
                         <v-form @submit.prevent="addEvent">
-                            <v-text-field v-model="name" type="text" label="event name (required)"></v-text-field>
-                            <v-text-field v-model="details" type="text" label="detail"></v-text-field>
-                            <v-text-field v-model="start" type="date" label="start (required)"></v-text-field>
-                            <v-text-field v-model="end" type="date" label="end (required)"></v-text-field>
-                            <v-text-field v-model="color" type="color" label="color (click to open color menu)"></v-text-field>
+                            <v-text-field v-model="name" color="#ff9600" type="text" label="event name (required)"></v-text-field>
+                            <v-text-field v-model="details" style="color: #000000" type="text" label="detail"></v-text-field>
+                            <v-text-field v-model="start" style="color: #000000" type="date" label="start (required)"></v-text-field>
+                            <v-text-field v-model="end" style="color: #000000" type="date" label="end (required)"></v-text-field>
+                            <v-text-field v-model="color" style="color: #000000" type="color" label="color (click to open color menu)"></v-text-field>
                             <v-btn type="submit" color="primary" class="mr-4" @click.stop="dialog = false">
                                 create event
                             </v-btn>
@@ -101,7 +82,7 @@ vuestacks-calendar-vue-firebase/src/components/Calendar.vue
                 <v-calendar
                         ref="calendar"
                         v-model="focus"
-                        color="primary"
+                        color="ff9600"
                         :events="events"
                         :event-color="getEventColor"
                         :event-margin-bottom="3"
@@ -162,7 +143,7 @@ vuestacks-calendar-vue-firebase/src/components/Calendar.vue
 </template>
 
 <script>
-    import { db } from '@/main'
+    import { db } from '@/App'
     export default {
         data: () => ({
             today: new Date().toISOString().substr(0, 10),
