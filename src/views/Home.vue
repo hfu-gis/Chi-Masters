@@ -29,7 +29,7 @@
                                         <v-flex xs12 md4>
                                             <v-card flat class="transparent">
                                                 <v-card-text class="text-center">
-                                                    <v-icon x-large class="blue--text text--lighten-2">mdi-notebook-multiple</v-icon>
+                                                    <v-icon x-large class="orange--text text--lighten-1">mdi-notebook-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
                                                     <div class="headline text-center">What is OrgOrg?</div>
@@ -45,7 +45,7 @@
                                         <v-flex xs12 md4>
                                             <v-card flat class="transparent">
                                                 <v-card-text class="text-center">
-                                                    <v-icon x-large class="blue--text text--lighten-2">mdi-calendar-multiple</v-icon>
+                                                    <v-icon x-large class="orange--text text--lighten-1">mdi-calendar-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
                                                     <div class="headline">Next Meeting</div>
@@ -60,7 +60,7 @@
                                         <v-flex xs12 md4>
                                             <v-card flat class="transparent">
                                                 <v-card-text class="text-center">
-                                                    <v-icon x-large color="#ff9600" class="text--lighten-2">mdi-cash-multiple</v-icon>
+                                                    <v-icon x-large color="#ff9600" class="orange--text text--lighten-1">mdi-cash-multiple</v-icon>
                                                 </v-card-text>
                                                 <v-card-title primary-title class="layout justify-center">
                                                     <div class="headline text-center">Outstanding Balance</div>
