@@ -48,13 +48,13 @@
                 <v-card>
                     <v-container>
                         <v-form @submit.prevent="addEvent">
-                            <v-text-field v-model="name" type="text" style="color: #000000" label="event name (required)"></v-text-field>
+                            <v-text-field v-model="name" type="text" style="color: #000 !important;" color ="#000" label="event name (required)"></v-text-field>
                             <v-text-field v-model="details" type="text" style="color: #000000" label="detail"></v-text-field>
                             <v-text-field v-model="start" type="date" style="color: #000000" label="start (required)"></v-text-field>
                             <v-text-field v-model="end" type="date" style="color: #000000" label="end (required)"></v-text-field>
                             <v-text-field v-model="color" type="color" style="color: #000000" label="color (click to open color menu)"></v-text-field>
-                            <v-btn type="submit" color="primary" style="color: #000000" class="mr-4" @click.stop="dialog = false">
-                                create event
+                            <v-btn type="submit" color="primary"  class="mr-4" @click.stop="dialog = false">
+                                create event color
                             </v-btn>
                         </v-form>
                     </v-container>
@@ -82,7 +82,7 @@
                 <v-calendar
                         ref="calendar"
                         v-model="focus"
-                        color="#ff9600"
+                        color="default"
                         :events="events"
                         :event-color="getEventColor"
                         :event-margin-bottom="3"
@@ -296,5 +296,8 @@
 <style scoped>
     .v-btn {
         color: #000 !important;
+    }
+    .v-label, .theme--light {
+        color: #151313 !important;
     }
 </style>

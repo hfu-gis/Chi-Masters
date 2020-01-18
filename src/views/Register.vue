@@ -114,7 +114,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     input {
         color: rgba(255, 255, 255, 1) !important;
     }
@@ -127,4 +127,8 @@
     .text-white {
         color: rgba(255, 255, 255, 1) !important;
     }
+    .v-label, .theme--light {
+        color: #fefefe !important;
+    }
 </style>
+
