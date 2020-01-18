@@ -8,7 +8,7 @@
                 <p class="subheading font-weight-regular text-white">
                     Create here your new Orgorg.org Account. If you already got one,
                     <br>please
-                    <router-link to="login">login here</router-link>
+                    <router-link to="login" style="color: #ff9600">login here</router-link>
                 </p>
             </v-flex>
             <v-flex>
@@ -16,42 +16,42 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field color="#fff" label="Name of Orginization" v-model="name" :rules="nameRules"></v-text-field>
+                                <v-text-field color="#ff9600" label="Name of Orginization" v-model="name" :rules="nameRules"></v-text-field>
                             </v-col>
                         </v-row>
                     </v-flex>
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field color="#fff" label="Your first name" v-model="firstName" :rules="nameRules"></v-text-field>
+                                <v-text-field color="#ff9600" label="Your first name" v-model="firstName" :rules="nameRules"></v-text-field>
                             </v-col>
                         </v-row>
                     </v-flex>
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field color="#fff" label="Your last name" v-model="lastName" :rules="nameRules"></v-text-field>
+                                <v-text-field color="#ff9600" label="Your last name" v-model="lastName" :rules="nameRules"></v-text-field>
                             </v-col>
                         </v-row>
                     </v-flex>
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field color="#fff" label="E-mail" v-model="email" :rules="emailRules"></v-text-field>
+                                <v-text-field color="#ff9600" label="E-mail" v-model="email" :rules="emailRules"></v-text-field>
                             </v-col>
                         </v-row>
                     </v-flex>
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field color="#fff" type="password" label="Password" v-model="password" :rules="passwordRules"></v-text-field>
+                                <v-text-field color="#ff9600" type="password" label="Password" v-model="password" :rules="passwordRules"></v-text-field>
                             </v-col>
                         </v-row>
                     </v-flex>
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-btn :disabled="!valid" class="primary text-white" @click="register">
+                                <v-btn color="#ff9600" :disabled="!valid" class="text-white" @click="register">
                                     Create Account
                                 </v-btn>
                             </v-col>
