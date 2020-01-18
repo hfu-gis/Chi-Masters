@@ -194,6 +194,10 @@
         props: {
             user: Object
         },
+        /**
+         *
+         * @returns {{eventsOpenID: [], eventsAcceptedID: [], eventsOpen: [], ready: boolean, balanceToPay: number, eventsDeclined: [], eventsDeclinedID: [], openToGetPayed: number, balanceToGetPayed: number, eventsAccepted: [], openToPay: number}}
+         */
         data: () => ({
             balanceToPay: 0,
             balanceToGetPayed: 0,
@@ -208,6 +212,10 @@
             ready: false
         }),
         methods: {
+            /**
+             *
+             * @param index
+             */
             acceptEvent(index) {
                 let self = this;
                 db.collection('Users').doc(self.user.email).collection('EventsOpen').get().then((res) => {
@@ -219,6 +227,10 @@
                     });
                 });
             },
+            /**
+             *
+             * @param index
+             */
             declineEvent(index) {
                 let self = this;
                 db.collection('Users').doc(self.user.email).collection('EventsOpen').get().then((res) => {
@@ -230,6 +242,10 @@
                     });
                 });
             },
+            /**
+             *
+             * @param index
+             */
             declineAccepted(index){
                 let self = this;
                 db.collection('Users').doc(self.user.email).collection('EventsAccepted').get().then((res) => {
@@ -241,6 +257,9 @@
                     });
                 });
             },
+            /**
+             *
+             */
             fetchEvents() {
                 let self = this;
                 self.ready = false;
@@ -257,6 +276,7 @@
                         self.eventsOpenID[i] = res.docs[i].id;
                     }
                 });
+
                 db.collection('Users').doc(self.user.email).collection('EventsAccepted').get().then((res) => {
                     for(let i in res.docs){
                         self.eventsAccepted[i] = res.docs[i].data();
@@ -272,6 +292,9 @@
                     self.ready = true;
                 });
             },
+            /**
+             *
+             */
             fetchBalance() {
                 let self = this;
                 db.collection('Users').doc(self.user.email).collection('MoneyOpen').get().then((reso) => {
@@ -281,10 +304,16 @@
                 })
             }
         },
+        /**
+         *
+         */
         mounted() {
             this.fetchEvents();
             this.fetchBalance();
         },
+        /**
+         * 
+         */
         watch: {
             user: function() {
                 this.fetchEvents();
