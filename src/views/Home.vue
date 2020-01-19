@@ -213,7 +213,7 @@
         }),
         methods: {
             /**
-             *
+             * Verschiebt zugesagte Events in der Datenbank ins richtige Dokument
              * @param index
              */
             acceptEvent(index) {
@@ -228,7 +228,7 @@
                 });
             },
             /**
-             *
+             * Verschiebt abgesagte Events in der Datenbank ins richtige Dokument
              * @param index
              */
             declineEvent(index) {
@@ -243,7 +243,7 @@
                 });
             },
             /**
-             *
+             * Verschiebt ein Event welches zugesagt war ins Dokument der abgesagten Events
              * @param index
              */
             declineAccepted(index){
@@ -258,7 +258,7 @@
                 });
             },
             /**
-             *
+             * Holt sich alle Events aus der Datenbank und speichert sie in den Arrays
              */
             fetchEvents() {
                 let self = this;
@@ -293,7 +293,7 @@
                 });
             },
             /**
-             *
+             * Holt sich alle Umsätze aus der Datenbank und speichert sie in den Arrays. Außerdem wird errechnet wie viel noch bezahlt werden muss
              */
             fetchBalance() {
                 let self = this;
@@ -305,14 +305,14 @@
             }
         },
         /**
-         *
+         * Nach dem die Seite geladen wurde, werden Events und Umsätze aus der Datenbank geladen
          */
         mounted() {
             this.fetchEvents();
             this.fetchBalance();
         },
         /**
-         * 
+         * Wenn sich was an den Umsätzen oder Events ändert, sollen die Arrays aktualisiert werden
          */
         watch: {
             user: function() {
