@@ -1,13 +1,13 @@
 <template>
     <v-content>
-        <h1>Money</h1>
+        <h1 style="color: #fff">Money</h1>
         <v-list v-if="(openToPay != 0 || openToGetPayed != 0) && ready" class="transparent">
             <v-list-item>
                 <h2 class="white--text">Open to pay: <span style="color: rgb(200, 0, 0)">{{openToPay}}</span> $</h2><v-spacer></v-spacer>
                 <h2 class="white--text">Open to get payed: <span style="color: rgb(0, 200, 0)">{{openToGetPayed}}</span> $</h2>
             </v-list-item>
             <v-list v-if="ready" class="transparent">
-                <h2>Sales open to Pay</h2>
+                <h2 style="color: #fff">Sales open to Pay</h2>
                 <v-list-item :key="sale" v-for="(sale, index) in salesOpen" :class="getClass(sale)" class="mb-2">
                     <v-list-item-content>
                         Date: <b>{{sale.Date}}</b>
@@ -32,7 +32,7 @@
             </v-list>
         </v-list>
         <v-list v-if="ready" class="transparent">
-            <h2>All sales</h2>
+            <h2 style="color: #fff">All sales</h2>
             <v-list-item :key="sale" v-for="(sale, index) in sales" :class="getClass(sale)" class="mb-2">
                 <v-list-item-content>
                     Date: <b>{{sale.Date}}</b>

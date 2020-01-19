@@ -15,7 +15,7 @@
                         <v-icon small>mdi-chevron-left </v-icon>
                     </v-btn>
                     <v-btn  @click="next" color="#ff9600">
-                        <v-icon small color="#ff9600">mdi-chevron-right  </v-icon>
+                        <v-icon small>mdi-chevron-right</v-icon>
                     </v-btn>
                     <v-toolbar-title class="ml-8" style="color: #000">{{ title }}</v-toolbar-title>
                     <div class="flex-grow-1"></div>
@@ -294,10 +294,4 @@
     }
 </script>
 <style scoped>
-    .v-btn {
-        color: #000 !important;
-    }
-    .v-label, .theme--light {
-        color: #151313 !important;
-    }
 </style>

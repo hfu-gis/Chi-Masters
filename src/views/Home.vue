@@ -95,7 +95,7 @@
                         </v-list-item>
                         <v-card-actions>
                             <router-link to="money" tag="v-btn">
-                                <v-btn class="ml-2 mb-2">
+                                <v-btn color="#ff9600" class="ml-2 mb-2">
                                     <span class="mr-2 black--text">Money</span>
                                 </v-btn>
                             </router-link>

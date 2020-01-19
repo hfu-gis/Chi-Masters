@@ -1,6 +1,6 @@
 <template>
     <v-content>
-        <h1>Member</h1>
+        <h1 style="color: #fff">Member</h1>
         <v-list class="transparent">
             <v-list-item class="list-item mb-2" :key="member" v-for="(member, index) in members">
                 <v-list-item-content class="white--text">
