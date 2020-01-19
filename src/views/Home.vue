@@ -133,7 +133,7 @@
                 </v-col>
                 <v-col cols=3 v-if="eventsOpen.length > 1">
                     <v-card class="mx-auto" min-height="30em"> <!--:color="event.color"-->
-                        <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" :aspect-ratio="16/9"></v-img>
+                        <v-img src="" :aspect-ratio="16/9"></v-img>
                         <v-progress-linear :color="eventsOpen[1].color" height="10" value="100"></v-progress-linear>
                         <v-card-title>
                             <div class="display-1 mb-2 black--text">{{eventsOpen[1].name}}</div>
