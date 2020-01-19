@@ -65,7 +65,7 @@
                 <v-card>
                     <v-card-title class="headline">Delete User</v-card-title>
                     <v-card-text>
-                        Are You sure you want to delete the user <b>{{userToDelete}}</b>?
+                        Are You sure you want to delete this user <b>{{userToDelete}}</b>?
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
