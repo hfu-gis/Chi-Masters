@@ -54,7 +54,7 @@
         <v-row justify="center">
             <v-dialog v-model="dialog" persistent max-width="600px">
                 <template v-slot:activator="{ on }">
-                    <v-btn id="addSale" v-on="on"><v-icon>mdi-plus</v-icon></v-btn>
+                    <v-btn absolute=true id="addSale" v-on="on"><v-icon>mdi-plus</v-icon></v-btn>
                 </template>
                 <v-card>
                     <v-card-title>
@@ -204,7 +204,7 @@
 
 <style scoped>
     #addSale{
-        background-color: #3f51b5;
+        background-color: #ff9600;
         position: absolute;
         right: 5px;
         bottom: 5px;

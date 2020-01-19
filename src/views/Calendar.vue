@@ -171,6 +171,10 @@
         mounted () {
             this.getEvents()
         },
+        props : {
+            user: Object,
+            organization: String
+        },
         computed: {
             title () {
                 const { start, end } = this
@@ -234,20 +238,30 @@
                 this.$refs.calendar.next()
             },
             async addEvent () {
+                let self = this;
                 if (this.name && this.start && this.end) {
-                    await db.collection("calEvent").add({
+                    db.collection('Organization').doc(self.organization).collection('Events').add({
                         name: this.name,
                         details: this.details,
                         start: this.start,
                         end: this.end,
                         color: this.color
+                    }).then(() => {
+                        db.collection("Users").doc(self.user.email).collection('EventsOpen').add({
+                            name: this.name,
+                            details: this.details,
+                            start: this.start,
+                            end: this.end,
+                            color: this.color
+                        }).then(() => {
+                            this.getEvents();
+                            this.name = '',
+                                this.details = '',
+                                this.start = '',
+                                this.end = '',
+                                this.color = ''
+                        })
                     })
-                    this.getEvents()
-                    this.name = '',
-                        this.details = '',
-                        this.start = '',
-                        this.end = '',
-                        this.color = ''
                 } else {
                     alert('You must enter event name, start, and end time')
                 }
