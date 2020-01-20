@@ -183,7 +183,7 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
             organization: String
         },
         /**
-         * sets the suffix for out dates
+         * makes our day/week/month/4days button work
          * */
         computed: {
             title () {
@@ -272,7 +272,7 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
             },
 
             /**
-             *
+             *adds new event to the organizations collection
              */
             async addEvent () {
                 let self = this;
@@ -309,8 +309,7 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
                 }
             },
             /**
-             *
-             * puts us in edit mode
+             * puts u in edit mode
              */
             editEvent (ev) {
                 this.currentlyEditing = ev.id
@@ -320,7 +319,7 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
              */
             async updateEvent (ev) {
                 await db.collection('calEvent').doc(this.currentlyEditing).update({
-                    details: ev.details
+                     details: ev.details
                 })
                 this.selectedOpen = false,
                     this.currentlyEditing = null
@@ -334,9 +333,7 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
                     this.getEvents()
             },
             /**
-             * creating a function called open
-             *
-             *
+             * creating a function called open for the pop up window
              */
             showEvent ({ nativeEvent, event }) {
                 const open = () => {
@@ -352,6 +349,9 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
                 }
                 nativeEvent.stopPropagation()
             },
+            /**
+             *sets the suffix for our dates
+             */
             updateRange ({ start, end }) {
                 this.start = start
                 this.end = end

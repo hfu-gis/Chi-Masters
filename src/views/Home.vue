@@ -216,7 +216,7 @@
         }),
         methods: {
             /**
-             * Verschiebt zugesagte Events in der Datenbank ins richtige Dokument
+             * passes excepted events into the database into the right document
              * @param index
              */
             acceptEvent(index) {
@@ -231,7 +231,7 @@
                 });
             },
             /**
-             * Verschiebt abgesagte Events in der Datenbank ins richtige Dokument
+             * passes declined events in the database into the right document
              * @param index
              */
             declineEvent(index) {
@@ -246,7 +246,7 @@
                 });
             },
             /**
-             * Verschiebt ein Event welches zugesagt war ins Dokument der abgesagten Events
+             * passes accepted event into the deocument with declined events
              * @param index
              */
             declineAccepted(index){
@@ -261,7 +261,7 @@
                 });
             },
             /**
-             * Holt sich alle Events aus der Datenbank und speichert sie in den Arrays
+             * catches all events from the database and saves them into arrays
              */
             fetchEvents() {
                 let self = this;
@@ -296,7 +296,7 @@
                 });
             },
             /**
-             * Holt sich alle Umsätze aus der Datenbank und speichert sie in den Arrays. Außerdem wird errechnet wie viel noch bezahlt werden muss
+             * fetches all sales from the database and saves them into arrays. Also calculates how much is left open.
              */
             fetchBalance() {
                 let self = this;
@@ -308,14 +308,14 @@
             }
         },
         /**
-         * Nach dem die Seite geladen wurde, werden Events und Umsätze aus der Datenbank geladen
+         * events and sales gets loaded into the database, after the site loads
          */
         mounted() {
             this.fetchEvents();
             this.fetchBalance();
         },
         /**
-         * Wenn sich was an den Umsätzen oder Events ändert, sollen die Arrays aktualisiert werden
+         * updates arrays if sales or events did change
          */
         watch: {
             user: function() {
