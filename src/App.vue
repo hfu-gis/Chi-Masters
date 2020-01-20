@@ -107,7 +107,7 @@
         }).catch((res) => {
           alert(res);
         });
-        self.sendInviteEmail(self.newEmail, self.organization, token);
+        //self.sendInviteEmail(self.newEmail, self.organization, token);
       },
       token() {
         return Math.random().toString(36).substr(2);
@@ -124,7 +124,7 @@
           From : "kemsit@web.de",
           Subject : "You were invited to join the Organization " + organization,
           Body : "Please click on the Link below to join the organization. \n https://orgorg-b30a0.firebaseapp.com/#/views/RegisterUser?t=" + token
-        }).then(message => alert(message)
+        }).then(() => alert('OK')
         );
       },
       updateUserData() {

@@ -2,10 +2,10 @@
     <v-content>
         <v-layout text-center wrap v-if="tokenIsValid">
             <v-flex xs12>
-                <h1 class="display-2 font-weight-bold mb-3">
+                <h1 style="color: #fff" class="display-2 font-weight-bold mb-3">
                     Create a new Orgorg Account
                 </h1>
-                <p class="subheading font-weight-regular">
+                <p style="color: #fff" class="subheading font-weight-regular">
                     You were invited to join the <b>{{name}}</b> with the email: <b>{{email}}</b>
                 </p>
             </v-flex>
@@ -14,7 +14,7 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field label="Your first name" v-model="firstName" :rules="nameRules"
+                                <v-text-field dark label="Your first name" v-model="firstName" :rules="nameRules"
                                 ></v-text-field>
                             </v-col>
                         </v-row>
@@ -22,7 +22,7 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field label="Your last name" v-model="lastName" :rules="nameRules"
+                                <v-text-field dark label="Your last name" v-model="lastName" :rules="nameRules"
                                 ></v-text-field>
                             </v-col>
                         </v-row>
@@ -30,7 +30,7 @@
                     <v-flex xs12>
                         <v-row justify="center">
                             <v-col cols="10" sm="8" md="4">
-                                <v-text-field type="password" label="Password" v-model="password" :rules="passwordRules"
+                                <v-text-field dark type="password" label="Password" v-model="password" :rules="passwordRules"
                                 ></v-text-field>
                             </v-col>
                         </v-row>
