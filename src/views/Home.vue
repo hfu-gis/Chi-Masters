@@ -105,59 +105,61 @@
             </v-row>
             <v-row cols="12" justify="center" v-if="ready">
                 <v-col cols=3 v-if="eventsOpen.length > 0">
-                <v-card class="mx-auto mb-12" min-height="35em"> <!--:color="event.color"-->
-                    <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" :aspect-ratio="16/9"></v-img>
-                    <v-card-title>
-                        <div class="display-1 mb-2 black--text">{{eventsOpen[0].name}}</div>
-                    </v-card-title>
-                    <v-card-text>
-                        <v-row cols="12">
-                            <v-col cols="6">
-                                <p class="black--text"><b>date:</b><br>{{eventsOpen[0].date}}</p>
-                                <p class="black--text"><b>details:</b><br>{{eventsOpen[0].details}}</p>
-                            </v-col>
-                        </v-row>
-                    </v-card-text>
-                    <v-card-actions class="justify-lg-space-around">
-                        <v-chip @click="acceptEvent(0)">
-                            <v-icon class="black--text" color="green" left>mdi-check-circle</v-icon>
-                            Accept
-                        </v-chip>
-                        <v-chip @click="declineEvent(0)">
-                            <v-icon class="black--text" color="red" left>mdi-close-circle</v-icon>
-                            Decline
-                        </v-chip>
-                    </v-card-actions>
-                </v-card>
-            </v-col>
-            <v-col cols=3 v-if="eventsOpen.length > 1">
-                <v-card class="mx-auto mb-12" min-height="35em"> <!--:color="event.color"-->
-                    <v-img src="https://cdn.vuetifyjs.com/images/cards/house.jpg" :aspect-ratio="16/9"></v-img>
-                    <v-card-title>
-                        <div class="display-1 mb-2 black--text">{{eventsOpen[1].name}}</div>
-                    </v-card-title>
-                    <v-card-text>
-                        <v-row cols="12">
-                            <v-col cols="6">
-                                <p class="black--text"><b>date:</b><br>{{eventsOpen[1].date}}</p>
-                                <p class="black--text"><b>details:</b><br>{{eventsOpen[1].details}}</p>
-                            </v-col>
-                        </v-row>
-                    </v-card-text>
-                    <v-card-actions class="justify-lg-space-around">
-                        <v-chip @click="acceptEvent(1)">
-                            <v-icon class="black--text" color="green" left>mdi-check-circle</v-icon>
-                            Accept
-                        </v-chip>
-                        <v-chip @click="declineEvent(1)">
-                            <v-icon class="black--text" color="red" left>mdi-close-circle</v-icon>
-                            Decline
-                        </v-chip>
-                    </v-card-actions>
-                </v-card>
-            </v-col>
+                    <v-card class="mx-auto" min-height="30em"> <!--:color="event.color"-->
+                        <v-img src="" :aspect-ratio="16/9"></v-img>
+                        <v-progress-linear :color="eventsOpen[0].color" height="10" value="100"></v-progress-linear>
+                        <v-card-title>
+                            <div class="display-1 mb-2 black--text">{{eventsOpen[0].name}}</div>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-row cols="12" class="mt-lg-n8">
+                                <v-col cols="6">
+                                    <p class="black--text"><strong class="black--text">date:</strong><br>{{eventsOpen[0].start}} - {{eventsOpen[0].end}}</p>
+                                    <p class="black--text"><b class="black--text">details:</b><br>{{eventsOpen[0].details}}</p>
+                                </v-col>
+                            </v-row>
+                        </v-card-text>
+                        <v-card-actions class="justify-lg-space-around mt-lg-n10">
+                            <v-chip @click="acceptEvent(0)">
+                                <v-icon class="black--text" color="green" left>mdi-check-circle</v-icon>
+                                Accept
+                            </v-chip>
+                            <v-chip @click="declineEvent(0)">
+                                <v-icon class="black--text" color="red" left>mdi-close-circle</v-icon>
+                                Decline
+                            </v-chip>
+                        </v-card-actions>
+                    </v-card>
+                </v-col>
+                <v-col cols=3 v-if="eventsOpen.length > 1">
+                    <v-card class="mx-auto" min-height="30em"> <!--:color="event.color"-->
+                        <v-img src="" :aspect-ratio="16/9"></v-img>
+                        <v-progress-linear :color="eventsOpen[1].color" height="10" value="100"></v-progress-linear>
+                        <v-card-title>
+                            <div class="display-1 mb-2 black--text">{{eventsOpen[1].name}}</div>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-row cols="12" class="mt-lg-n8">
+                                <v-col cols="6">
+                                    <p class="black--text"><strong class="black--text">date:</strong><br>{{eventsOpen[1].start}} - {{eventsOpen[1].end}}</p>
+                                    <p class="black--text"><b class="black--text">details:</b><br>{{eventsOpen[1].details}}</p>
+                                </v-col>
+                            </v-row>
+                        </v-card-text>
+                        <v-card-actions class="justify-lg-space-around mt-lg-n10">
+                            <v-chip @click="acceptEvent(1)">
+                                <v-icon class="black--text" color="green" left>mdi-check-circle</v-icon>
+                                Accept
+                            </v-chip>
+                            <v-chip @click="declineEvent(1)">
+                                <v-icon class="black--text" color="red" left>mdi-close-circle</v-icon>
+                                Decline
+                            </v-chip>
+                        </v-card-actions>
+                    </v-card>
+                </v-col>
             </v-row>
-            <v-row cols="12" justify="center" class="mb-4">
+            <v-row cols="12" justify="center" class="mb-4 mt-lg-n0">
                 <v-col cols="6">
                     <v-card v-if="eventsAccepted.length > 0">
                         <v-list>

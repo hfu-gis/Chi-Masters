@@ -1,22 +1,27 @@
-
+<!-- build with the vuetify calendar components (https://vuetifyjs.com/en/components/calendars) and a youtube tutorial
+from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
 
 <template>
     <v-row class="fill-height">
         <v-col>
             <v-sheet height="64">
                 <v-toolbar flat color="white">
+                    <!-- new event button-->
                     <v-btn style="color: #fff !important;" color="#ff9600" dark @click.stop="dialog = true">
                         New Event
                     </v-btn>
-                    <v-btn class="mr-4 ml-4" style="color: #fff !important;" color="#ff9600" dark @click="setToday">
-                        Today
-                    </v-btn>
+                    <!-- jump to today button -->
+                     <v-btn class="mr-4 ml-4" style="color: #fff !important;" color="#ff9600" dark @click="setToday">
+                         Today
+                     </v-btn>
+                     <!-- prev - next click button -->
                     <v-btn  color="#ff9600" @click="prev">
                         <v-icon small>mdi-chevron-left </v-icon>
                     </v-btn>
                     <v-btn  @click="next" color="#ff9600">
                         <v-icon small>mdi-chevron-right</v-icon>
                     </v-btn>
+                    <!-- headline date -->
                     <v-toolbar-title class="ml-8" style="color: #000">{{ title }}</v-toolbar-title>
                     <div class="flex-grow-1"></div>
                     <v-menu bottom right>
@@ -26,6 +31,7 @@
                                 <v-icon right>mdi-menu-down</v-icon>
                             </v-btn>
                         </template>
+                        <!-- click button to chose timesteps-->
                         <v-list>
                             <v-list-item @click="type = 'day'">
                                 <v-list-item-title>Day</v-list-item-title>
@@ -43,7 +49,7 @@
                     </v-menu>
                 </v-toolbar>
             </v-sheet>
-
+            <!-- new event dialog pop up -->
             <v-dialog v-model="dialog" max-width="700">
                 <v-card>
                     <v-container>
@@ -77,7 +83,7 @@
                     </v-container>
                 </v-card>
             </v-dialog>
-
+             <!--   calendar view -->
             <v-sheet height="600">
                 <v-calendar
                         ref="calendar"
@@ -93,6 +99,7 @@
                         @click:date="setDialogDate"
                         @change="updateRange"
                 ></v-calendar>
+                <!-- pop up event -->
                 <v-menu
                         v-model="selectedOpen"
                         :close-on-content-click="false"
@@ -141,7 +148,7 @@
         </v-col>
     </v-row>
 </template>
-
+<!-- adding data -->
 <script>
     import { db } from '@/main'
         export default {
@@ -159,7 +166,7 @@
             details: null,
             start: null,
             end: null,
-            color: '#1976D2', // default event color
+            color: '#1976D2',
             currentlyEditing: null,
             selectedEvent: {},
             selectedElement: null,
@@ -168,9 +175,16 @@
             dialog: false,
             dialogDate: false
         }),
-        mounted () {
+        mounted () {    //gets called when the component is mounted
             this.getEvents()
         },
+        props : {
+            user: Object,
+            organization: String
+        },
+        /**
+         * sets the suffix for out dates
+         * */
         computed: {
             title () {
                 const { start, end } = this
@@ -202,8 +216,14 @@
                 })
             }
         },
+
         methods: {
-            async getEvents () {
+            /**
+             *
+             * @returns {Promise<void>}
+             */
+
+            async getEvents () {       //returns promises
                 let snapshot = await db.collection('calEvent').get()
                 const events = []
                 snapshot.forEach(doc => {
@@ -213,10 +233,17 @@
                 })
                 this.events = events
             },
+            /**
+             *sets dialog date
+             */
+
             setDialogDate( { date }) {
                 this.dialogDate = true
                 this.focus = date
             },
+            /**
+             *sets the focus to the day that's parsed in with 'date'
+             */
             viewDay ({ date }) {
                 this.focus = date
                 this.type = 'day'
@@ -224,37 +251,67 @@
             getEventColor (event) {
                 return event.color
             },
+            /**
+             * sets the focus to the today's value
+             */
             setToday () {
                 this.focus = this.today
             },
+            /**
+             * sets the chosen type one back
+             */
             prev () {
                 this.$refs.calendar.prev()
             },
+            /**
+             *sets the chosen type one further
+             */
             next () {
                 this.$refs.calendar.next()
             },
+
+            /**
+             *
+             */
             async addEvent () {
+                let self = this;
                 if (this.name && this.start && this.end) {
-                    await db.collection("calEvent").add({
+                    db.collection('Organization').doc(self.organization).collection('Events').add({
                         name: this.name,
                         details: this.details,
                         start: this.start,
                         end: this.end,
                         color: this.color
+                    }).then(() => {
+                        db.collection("Users").doc(self.user.email).collection('EventsOpen').add({
+                            name: this.name,
+                            details: this.details,
+                            start: this.start,
+                            end: this.end,
+                            color: this.color
+                        }).then(() => {
+                            this.getEvents();
+                            this.name = '',
+                                this.details = '',
+                                this.start = '',
+                                this.end = '',
+                                this.color = ''
+                        })
                     })
-                    this.getEvents()
-                    this.name = '',
-                        this.details = '',
-                        this.start = '',
-                        this.end = '',
-                        this.color = ''
                 } else {
                     alert('You must enter event name, start, and end time')
                 }
             },
+            /**
+             *
+             * puts us in edit mode
+             */
             editEvent (ev) {
                 this.currentlyEditing = ev.id
             },
+            /**
+             *updates current event
+             */
             async updateEvent (ev) {
                 await db.collection('calEvent').doc(this.currentlyEditing).update({
                     details: ev.details
@@ -262,11 +319,19 @@
                 this.selectedOpen = false,
                     this.currentlyEditing = null
             },
+            /**
+             * deletes current event
+             */
             async deleteEvent (ev) {
                 await db.collection("calEvent").doc(ev).delete()
                 this.selectedOpen = false,
                     this.getEvents()
             },
+            /**
+             * creating a function called open
+             *
+             *
+             */
             showEvent ({ nativeEvent, event }) {
                 const open = () => {
                     this.selectedEvent = event
