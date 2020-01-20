@@ -60,7 +60,7 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
                             <v-text-field v-model="end" type="date" style="color: #000000" label="end (required)"></v-text-field>
                             <v-text-field v-model="color" type="color" style="color: #000000" label="color (click to open color menu)"></v-text-field>
                             <v-btn type="submit" color="primary"  class="mr-4" @click.stop="dialog = false">
-                                create event color
+                                create event
                             </v-btn>
                         </v-form>
                     </v-container>
