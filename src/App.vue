@@ -118,10 +118,10 @@
       sendInviteEmail(email, organization, token){
         smtp.Email.send({
           Host : "smtp.elasticemail.com",
-          Username : "dennishawran@gmail.com",
-          Password : "DAB5196EB8BCA8C94CB2AD63F45745AD9A45",
+          Username : "kemsit@web.de",
+          Password : "AA22274B99F741BCF51524ED8FA475096BA1",
           To : email,
-          From : "dennishawran@gmail.com",
+          From : "kemsit@web.de",
           Subject : "You were invited to join the Organization " + organization,
           Body : "Please click on the Link below to join the organization. \n https://orgorg-b30a0.firebaseapp.com/#/views/RegisterUser?t=" + token
         }).then(message => alert(message)
