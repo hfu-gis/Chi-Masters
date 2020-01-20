@@ -224,7 +224,8 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
              */
 
             async getEvents () {       //returns promises
-                let snapshot = await db.collection('calEvent').get()
+                let self = this;
+                let snapshot = await db.collection('Users').doc(self.user.email).collection('EventsOpen').get()
                 const events = []
                 snapshot.forEach(doc => {
                     let appData = doc.data()
@@ -283,19 +284,24 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
                         end: this.end,
                         color: this.color
                     }).then(() => {
-                        db.collection("Users").doc(self.user.email).collection('EventsOpen').add({
-                            name: this.name,
-                            details: this.details,
-                            start: this.start,
-                            end: this.end,
-                            color: this.color
-                        }).then(() => {
+                        db.collection('Users').get().then((res) => {
+                            for(let i = 0; i < res.docs.length; i++){
+                                db.collection("Users").doc(res.docs[i].id).collection('EventsOpen').add({
+                                    name: this.name,
+                                    details: this.details,
+                                    start: this.start,
+                                    end: this.end,
+                                    color: this.color
+                                })
+                            }
                             this.getEvents();
                             this.name = '',
-                                this.details = '',
-                                this.start = '',
-                                this.end = '',
-                                this.color = ''
+                            this.details = '',
+                            this.start = '',
+                            this.end = '',
+                            this.color = ''
+                        }).then(() => {
+                            this.getEvents();
                         })
                     })
                 } else {
@@ -354,6 +360,11 @@ from @Traversy Media ---  https://www.youtube.com/watch?v=2NOsjTT1b_k&t=1736s-->
                 return d > 3 && d < 21
                     ? 'th'
                     : ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'][d % 10]
+            }
+        },
+        watch: {
+            user: function() {
+                this.getEvents();
             }
         }
     }
